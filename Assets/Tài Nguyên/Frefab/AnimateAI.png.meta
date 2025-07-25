@@ -1,0 +1,2217 @@
+fileFormatVersion: 2
+guid: 9be2944828911f442b81e73d08efc94e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -755921747159779169
+    second: AnimateAI_0
+  - first:
+      213: -4740066331907693878
+    second: AnimateAI_1
+  - first:
+      213: 864551282896904474
+    second: AnimateAI_2
+  - first:
+      213: 291238009870124022
+    second: AnimateAI_3
+  - first:
+      213: -6500952510805422487
+    second: AnimateAI_4
+  - first:
+      213: 2744085858640043377
+    second: AnimateAI_5
+  - first:
+      213: 6034270542261384147
+    second: AnimateAI_6
+  - first:
+      213: -7459305517648121412
+    second: AnimateAI_7
+  - first:
+      213: -8768443777106691374
+    second: AnimateAI_8
+  - first:
+      213: -7808606440143789206
+    second: AnimateAI_9
+  - first:
+      213: -149851275473635281
+    second: AnimateAI_10
+  - first:
+      213: 4206896527769193814
+    second: AnimateAI_11
+  - first:
+      213: 3857847452021893405
+    second: AnimateAI_12
+  - first:
+      213: -6388304606821397364
+    second: AnimateAI_13
+  - first:
+      213: 8350272900946320881
+    second: AnimateAI_14
+  - first:
+      213: 6873881366605569767
+    second: AnimateAI_15
+  - first:
+      213: 7932497768947397444
+    second: AnimateAI_16
+  - first:
+      213: -1916511532358484400
+    second: AnimateAI_17
+  - first:
+      213: -798083913909981621
+    second: AnimateAI_18
+  - first:
+      213: -1329824660426428420
+    second: AnimateAI_19
+  - first:
+      213: 8494037781219565694
+    second: AnimateAI_20
+  - first:
+      213: -5017291400502138024
+    second: AnimateAI_21
+  - first:
+      213: -4279369862415420789
+    second: AnimateAI_22
+  - first:
+      213: -8562415616324919403
+    second: AnimateAI_23
+  - first:
+      213: -6958911146130958213
+    second: AnimateAI_24
+  - first:
+      213: 1110159123575055162
+    second: AnimateAI_25
+  - first:
+      213: -280314244766090217
+    second: AnimateAI_26
+  - first:
+      213: 2606871844425534460
+    second: AnimateAI_27
+  - first:
+      213: -6277951296101071818
+    second: AnimateAI_28
+  - first:
+      213: 801688155391837512
+    second: AnimateAI_29
+  - first:
+      213: -6399266150599389682
+    second: AnimateAI_30
+  - first:
+      213: -8297446936821476978
+    second: AnimateAI_31
+  - first:
+      213: 1102299793340675200
+    second: AnimateAI_32
+  - first:
+      213: -8962781582208785988
+    second: AnimateAI_33
+  - first:
+      213: 4640299575138010415
+    second: AnimateAI_34
+  - first:
+      213: -5675325227961849873
+    second: AnimateAI_35
+  - first:
+      213: -1940215232677900176
+    second: AnimateAI_36
+  - first:
+      213: 6038894538038110199
+    second: AnimateAI_37
+  - first:
+      213: 7371472500213183194
+    second: AnimateAI_38
+  - first:
+      213: -7354876036390213540
+    second: AnimateAI_39
+  - first:
+      213: -487442679101880430
+    second: AnimateAI_40
+  - first:
+      213: -9077586061143053830
+    second: AnimateAI_41
+  - first:
+      213: -6821437361642534697
+    second: AnimateAI_42
+  - first:
+      213: 6032484857636053602
+    second: AnimateAI_43
+  - first:
+      213: -3985717209570110937
+    second: AnimateAI_44
+  - first:
+      213: 997074925776201810
+    second: AnimateAI_45
+  - first:
+      213: 8851679590297488303
+    second: AnimateAI_46
+  - first:
+      213: -2315008521068235570
+    second: AnimateAI_47
+  - first:
+      213: 1520007377990128524
+    second: AnimateAI_48
+  - first:
+      213: -1114694817739854264
+    second: AnimateAI_49
+  - first:
+      213: -2909053136041454632
+    second: AnimateAI_50
+  - first:
+      213: 8165847910624136712
+    second: AnimateAI_51
+  - first:
+      213: -6256358311612064940
+    second: AnimateAI_52
+  - first:
+      213: 1581602166296644099
+    second: AnimateAI_53
+  - first:
+      213: 160607077593222463
+    second: AnimateAI_54
+  - first:
+      213: 2775284038134023216
+    second: AnimateAI_55
+  - first:
+      213: -5111205680013550871
+    second: AnimateAI_56
+  - first:
+      213: 4657831630703663686
+    second: AnimateAI_57
+  - first:
+      213: 7889159070499629389
+    second: AnimateAI_58
+  - first:
+      213: -2981927386785542983
+    second: AnimateAI_59
+  - first:
+      213: 6883227371415456108
+    second: AnimateAI_60
+  - first:
+      213: 7310924140262765333
+    second: AnimateAI_61
+  - first:
+      213: -3709888144033551246
+    second: AnimateAI_62
+  - first:
+      213: -6511214795363571367
+    second: AnimateAI_63
+  - first:
+      213: 2300431516221642935
+    second: AnimateAI_64
+  - first:
+      213: 881942680593571508
+    second: AnimateAI_65
+  - first:
+      213: -1626328356994177195
+    second: AnimateAI_66
+  - first:
+      213: -5156831475999356648
+    second: AnimateAI_67
+  - first:
+      213: -5184245022403678803
+    second: AnimateAI_68
+  - first:
+      213: -2471970915602817649
+    second: AnimateAI_69
+  - first:
+      213: -7421476177603257131
+    second: AnimateAI_70
+  - first:
+      213: 2542364538309623924
+    second: AnimateAI_71
+  - first:
+      213: -5584332829408528061
+    second: AnimateAI_72
+  - first:
+      213: 5249405307350489323
+    second: AnimateAI_73
+  - first:
+      213: -6441386721401157321
+    second: AnimateAI_74
+  - first:
+      213: -6162134631118130530
+    second: AnimateAI_75
+  - first:
+      213: 5664431029130164555
+    second: AnimateAI_76
+  - first:
+      213: 1791726932250977618
+    second: AnimateAI_77
+  - first:
+      213: -5791837613008982926
+    second: AnimateAI_78
+  - first:
+      213: 8960609810485115036
+    second: AnimateAI_79
+  - first:
+      213: -3791886680702899244
+    second: AnimateAI_80
+  - first:
+      213: -915561282066127337
+    second: AnimateAI_81
+  - first:
+      213: -166896572645954199
+    second: AnimateAI_82
+  - first:
+      213: 1648122590055176724
+    second: AnimateAI_83
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AnimateAI_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f987c8e0d2d6285f0800000000000000
+      internalID: -755921747159779169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 631
+        width: 68
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac26adaf8c6e73eb0800000000000000
+      internalID: -4740066331907693878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 632
+        width: 67
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11ad2bafc08ffb00800000000000000
+      internalID: 864551282896904474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_3
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3866b4d6faa0400800000000000000
+      internalID: 291238009870124022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e42cb822af7c5a0800000000000000
+      internalID: -6500952510805422487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_5
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d9965bc83f41620800000000000000
+      internalID: 2744085858640043377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_6
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3f71656190eb350800000000000000
+      internalID: 6034270542261384147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 632
+        width: 67
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1f87d17293b7890800000000000000
+      internalID: -7459305517648121412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_8
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 631
+        width: 68
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da329887da305680800000000000000
+      internalID: -8768443777106691374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_9
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63e66080d142a390800000000000000
+      internalID: -7808606440143789206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_10
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2831441f0f9bedf0800000000000000
+      internalID: -149851275473635281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_11
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 631
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65dc1885a16e16a30800000000000000
+      internalID: 4206896527769193814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d19296f51d3d98530800000000000000
+      internalID: 3857847452021893405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_13
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c4b698ece2857a0800000000000000
+      internalID: -6388304606821397364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_14
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 517
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fdd97636f022e370800000000000000
+      internalID: 8350272900946320881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_15
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 517
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee93bcfeaee46f50800000000000000
+      internalID: 6873881366605569767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_16
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44330b351b4e51e60800000000000000
+      internalID: 7932497768947397444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_17
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 517
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e35d95aee2765e0800000000000000
+      internalID: -1916511532358484400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_18
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e2172a8e2ace4f0800000000000000
+      internalID: -798083913909981621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_19
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 517
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cff6abd54838b8de0800000000000000
+      internalID: -1329824660426428420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_20
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e70e652db52e0e570800000000000000
+      internalID: 8494037781219565694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_21
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 517
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ba272dd000f5ab0800000000000000
+      internalID: -5017291400502138024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_22
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82773088cf9c94c0800000000000000
+      internalID: -4279369862415420789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_23
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 517
+        width: 72
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f12b1dc503c2980800000000000000
+      internalID: -8562415616324919403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 421
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b789b57be2bfc6f90800000000000000
+      internalID: -6958911146130958213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 421
+        width: 65
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33a9dc47d3186f00800000000000000
+      internalID: 1110159123575055162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_26
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 421
+        width: 64
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71c3c37fdaf1c1cf0800000000000000
+      internalID: -280314244766090217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_27
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 421
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb83f571287d2420800000000000000
+      internalID: 2606871844425534460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_28
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 420
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63441b6ee8c30e8a0800000000000000
+      internalID: -6277951296101071818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_29
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 421
+        width: 65
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 845c4ca312b202b00800000000000000
+      internalID: 801688155391837512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_30
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 421
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e875e375d3137a0800000000000000
+      internalID: -6399266150599389682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_31
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 421
+        width: 64
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e815a1409fb89dc80800000000000000
+      internalID: -8297446936821476978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_32
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 421
+        width: 65
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084be0262d72c4f00800000000000000
+      internalID: 1102299793340675200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_33
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 421
+        width: 65
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1280943adcd9380800000000000000
+      internalID: -8962781582208785988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_34
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 421
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f254f73d0e7a56040800000000000000
+      internalID: 4640299575138010415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_35
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 420
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7658a36c13d31b0800000000000000
+      internalID: -5675325227961849873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_36
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 324
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0709e6c8688f215e0800000000000000
+      internalID: -1940215232677900176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_37
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 325
+        width: 67
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7eecf36967ec350800000000000000
+      internalID: 6038894538038110199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_38
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 324
+        width: 67
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad274c6ee2bbc4660800000000000000
+      internalID: 7371472500213183194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_39
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 325
+        width: 67
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58ade3763b3ee990800000000000000
+      internalID: -7354876036390213540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_40
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 325
+        width: 67
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29784c747714c39f0800000000000000
+      internalID: -487442679101880430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_41
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 325
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9e78f829fe50280800000000000000
+      internalID: -9077586061143053830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_42
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 324
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d808b17cd26551a0800000000000000
+      internalID: -6821437361642534697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_43
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 324
+        width: 67
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 262e15c3401b7b350800000000000000
+      internalID: 6032484857636053602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_44
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 325
+        width: 67
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722996ca053efa8c0800000000000000
+      internalID: -3985717209570110937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_45
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 325
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258e65dbc5256dd00800000000000000
+      internalID: 997074925776201810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_46
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 324
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fabc14d60bb77da70800000000000000
+      internalID: 8851679590297488303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_47
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 325
+        width: 67
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4b9b9f3007fdfd0800000000000000
+      internalID: -2315008521068235570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_48
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83131d28a6281510800000000000000
+      internalID: 1520007377990128524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_49
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 208
+        width: 64
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84ea5ab18fec780f0800000000000000
+      internalID: -1114694817739854264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_50
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 209
+        width: 66
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d35389e597f0a7d0800000000000000
+      internalID: -2909053136041454632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_51
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 209
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e0e92096be25170800000000000000
+      internalID: 8165847910624136712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_52
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45bdcc06343fc29a0800000000000000
+      internalID: -6256358311612064940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_53
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a89126acaf2f510800000000000000
+      internalID: 1581602166296644099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_54
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d8b5049479a3200800000000000000
+      internalID: 160607077593222463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_55
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 209
+        width: 66
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0344acbe02ac38620800000000000000
+      internalID: 2775284038134023216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_56
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 208
+        width: 64
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea55dca3895119b0800000000000000
+      internalID: -5111205680013550871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_57
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a9bab9031f3a040800000000000000
+      internalID: 4657831630703663686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_58
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d496ea5406ceb7d60800000000000000
+      internalID: 7889159070499629389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_59
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 208
+        width: 65
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc83a437d01e96d0800000000000000
+      internalID: -2981927386785542983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_60
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 116
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69c67d43d2268f50800000000000000
+      internalID: 6883227371415456108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_61
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 116
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 513b03845ce957560800000000000000
+      internalID: 7310924140262765333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_62
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 117
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c627a8364d38cc0800000000000000
+      internalID: -3709888144033551246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_63
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 116
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959261a34a483a5a0800000000000000
+      internalID: -6511214795363571367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_64
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 117
+        width: 64
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8118a9646ccef10800000000000000
+      internalID: 2300431516221642935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_65
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 117
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be190df13a4d3c00800000000000000
+      internalID: 881942680593571508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_66
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 116
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557a739d9fe1e69e0800000000000000
+      internalID: -1626328356994177195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_67
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 117
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819418a38114f68b0800000000000000
+      internalID: -5156831475999356648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_68
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 116
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dadaa039e9cdd08b0800000000000000
+      internalID: -5184245022403678803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_69
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 117
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d9560ac8bc1bdd0800000000000000
+      internalID: -2471970915602817649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_70
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 116
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dc1fe4bcbe910990800000000000000
+      internalID: -7421476177603257131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_71
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 117
+        width: 64
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470ce7bd31b484320800000000000000
+      internalID: 2542364538309623924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_72
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 24
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3497d83f0e67082b0800000000000000
+      internalID: -5584332829408528061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_73
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 24
+        width: 67
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be81da28052a9d840800000000000000
+      internalID: 5249405307350489323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_74
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 25
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73947f1a7e89b96a0800000000000000
+      internalID: -6441386721401157321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_75
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 25
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92321e8333bb7aa0800000000000000
+      internalID: -6162134631118130530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_76
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 24
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49f002720a1c9e40800000000000000
+      internalID: 5664431029130164555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_77
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 25
+        width: 66
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255e153e62e7dd810800000000000000
+      internalID: 1791726932250977618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_78
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 24
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c6adf90624f9fa0800000000000000
+      internalID: -5791837613008982926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_79
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 25
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9878d4b52b7a5c70800000000000000
+      internalID: 8960609810485115036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_80
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 24
+        width: 67
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db2b287723806bc0800000000000000
+      internalID: -3791886680702899244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_81
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 25
+        width: 66
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716e8546dd54b43f0800000000000000
+      internalID: -915561282066127337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_82
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 24
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d253193701fadf0800000000000000
+      internalID: -166896572645954199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimateAI_83
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 24
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a198673ce4fd610800000000000000
+      internalID: 1648122590055176724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

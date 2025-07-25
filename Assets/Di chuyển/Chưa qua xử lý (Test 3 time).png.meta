@@ -1,0 +1,425 @@
+fileFormatVersion: 2
+guid: 797305e9225ca714bb42b6b5a1c30650
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4800236607564007579
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_0"
+  - first:
+      213: 710443032166901454
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_1"
+  - first:
+      213: 5876580322410604192
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_2"
+  - first:
+      213: 5058799488211331763
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_3"
+  - first:
+      213: 6690807288710023892
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_4"
+  - first:
+      213: 3504838635766537047
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_5"
+  - first:
+      213: 1350257434212488025
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_6"
+  - first:
+      213: -3881301771154826940
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_7"
+  - first:
+      213: -3420579144483229384
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_8"
+  - first:
+      213: 8184530469028047656
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_9"
+  - first:
+      213: 4020530971946904729
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_10"
+  - first:
+      213: 2061276322181056813
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_11"
+  - first:
+      213: 4946768903713488570
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_12"
+  - first:
+      213: -8455716399355554953
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_13"
+  - first:
+      213: 2303661478791769566
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_14"
+  - first:
+      213: 2028416522562475150
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_15"
+  - first:
+      213: -6305058242382485065
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_16"
+  - first:
+      213: -2574537234988104678
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_17"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_0"
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 170
+        width: 564
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b98cda703cddd9240800000000000000
+      internalID: 4800236607564007579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_1"
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 170
+        width: 602
+        height: 715
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6a5757c200cd900800000000000000
+      internalID: 710443032166901454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_2"
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 170
+        width: 602
+        height: 715
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6a553faaecd8150800000000000000
+      internalID: 5876580322410604192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_3"
+      rect:
+        serializedVersion: 2
+        x: 2392
+        y: 169
+        width: 635
+        height: 928
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3baa3c4f457743640800000000000000
+      internalID: 5058799488211331763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_4"
+      rect:
+        serializedVersion: 2
+        x: 3213
+        y: 164
+        width: 635
+        height: 946
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dac72897c58adc50800000000000000
+      internalID: 6690807288710023892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_5"
+      rect:
+        serializedVersion: 2
+        x: 4187
+        y: 171
+        width: 635
+        height: 914
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75bdde77b20b3a030800000000000000
+      internalID: 3504838635766537047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_6"
+      rect:
+        serializedVersion: 2
+        x: 5198
+        y: 170
+        width: 631
+        height: 832
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953d0918bf31db210800000000000000
+      internalID: 1350257434212488025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_7"
+      rect:
+        serializedVersion: 2
+        x: 6015
+        y: 169
+        width: 681
+        height: 883
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449d8386a98d22ac0800000000000000
+      internalID: -3881301771154826940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_8"
+      rect:
+        serializedVersion: 2
+        x: 6882
+        y: 169
+        width: 681
+        height: 903
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 831b7fe1469a780d0800000000000000
+      internalID: -3420579144483229384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_9"
+      rect:
+        serializedVersion: 2
+        x: 7662
+        y: 168
+        width: 677
+        height: 879
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b27cb191b459170800000000000000
+      internalID: 8184530469028047656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_10"
+      rect:
+        serializedVersion: 2
+        x: 8491
+        y: 170
+        width: 681
+        height: 836
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ce9570e9bcbc730800000000000000
+      internalID: 4020530971946904729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1a7f099db5c81234499bbe5a8c400168
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_0": 4800236607564007579
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_1": 710443032166901454
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_10": 4020530971946904729
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_11": 2061276322181056813
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_2": 5876580322410604192
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_3": 5058799488211331763
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_4": 6690807288710023892
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_5": 3504838635766537047
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_6": 1350257434212488025
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_7": -3881301771154826940
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_8": -3420579144483229384
+      "Ch\u01B0a qua x\u1EED l\xFD (Test 3 time)_9": 8184530469028047656
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

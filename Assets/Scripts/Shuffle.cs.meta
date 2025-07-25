@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d4b83feaf4abb2a4e9303a8e52850e4c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - redPlayerSprite: {instanceID: 0}
+  - yellowPlayerSprite: {instanceID: 0}
+  - darkGreenPlayerSprite: {instanceID: 0}
+  - crewmatePanel: {instanceID: 0}
+  - impostorPanel: {instanceID: 0}
+  - roleCrewmatePanel: {instanceID: 0}
+  - roleImpostorPanel: {instanceID: 0}
+  - playerCrewImage: {instanceID: 0}
+  - playerImpostorImage: {instanceID: 0}
+  - aiImpostorImage: {instanceID: 0}
+  - roleCrewmateImage: {instanceID: 0}
+  - roleImpostorImage: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

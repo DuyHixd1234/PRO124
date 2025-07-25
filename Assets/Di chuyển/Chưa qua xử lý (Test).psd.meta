@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: 90def5ead9bb08640a0472d3005fa424
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2186643266228893280
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_0"
+  - first:
+      213: -4337973151641288901
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_1"
+  - first:
+      213: -8345705227723506022
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_2"
+  - first:
+      213: -7286563805329333065
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_3"
+  - first:
+      213: -2480947320298562570
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_4"
+  - first:
+      213: -413951575010182165
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_5"
+  - first:
+      213: 2185984398933047376
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_6"
+  - first:
+      213: 273041579946091450
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_7"
+  - first:
+      213: -7207048210807575562
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_8"
+  - first:
+      213: -444682042462138757
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_9"
+  - first:
+      213: -8034623055027724614
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_10"
+  - first:
+      213: -4528308034779108174
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_11"
+  - first:
+      213: -4859896138165723926
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_12"
+  - first:
+      213: 7208203534806545466
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_13"
+  - first:
+      213: 455503313264998512
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_14"
+  - first:
+      213: 3132101083595896540
+    second: "Ch\u01B0a qua x\u1EED l\xFD (Test)_15"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_0"
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 176
+        width: 602
+        height: 715
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066b21e1774885e10800000000000000
+      internalID: 2186643266228893280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_1"
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 176
+        width: 602
+        height: 715
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f3d33f66c6cc3c0800000000000000
+      internalID: -4337973151641288901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_2"
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 172
+        width: 635
+        height: 931
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e7b6510591e2c80800000000000000
+      internalID: -8345705227723506022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_3"
+      rect:
+        serializedVersion: 2
+        x: 2268
+        y: 168
+        width: 635
+        height: 948
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4602e23dce0ea90800000000000000
+      internalID: -7286563805329333065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_4"
+      rect:
+        serializedVersion: 2
+        x: 3242
+        y: 170
+        width: 635
+        height: 921
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb952b8e87e19dd0800000000000000
+      internalID: -2480947320298562570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_5"
+      rect:
+        serializedVersion: 2
+        x: 4253
+        y: 176
+        width: 631
+        height: 832
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebfd495c39514af0800000000000000
+      internalID: -413951575010182165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_6"
+      rect:
+        serializedVersion: 2
+        x: 5070
+        y: 175
+        width: 681
+        height: 883
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05833fe9a3d265e10800000000000000
+      internalID: 2185984398933047376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_7"
+      rect:
+        serializedVersion: 2
+        x: 5939
+        y: 173
+        width: 681
+        height: 905
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3299dced90ac300800000000000000
+      internalID: 273041579946091450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_8"
+      rect:
+        serializedVersion: 2
+        x: 6719
+        y: 173
+        width: 677
+        height: 880
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb23bb36db6bfb90800000000000000
+      internalID: -7207048210807575562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\u01B0a qua x\u1EED l\xFD (Test)_9"
+      rect:
+        serializedVersion: 2
+        x: 7546
+        y: 176
+        width: 681
+        height: 836
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e8c05d90c24d9f0800000000000000
+      internalID: -444682042462138757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 28a19f96c9b1e0240b6b1db5e8b41129
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_0": 2186643266228893280
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_1": -4337973151641288901
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_2": -8345705227723506022
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_3": -7286563805329333065
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_4": -2480947320298562570
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_5": -413951575010182165
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_6": 2185984398933047376
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_7": 273041579946091450
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_8": -7207048210807575562
+      "Ch\u01B0a qua x\u1EED l\xFD (Test)_9": -444682042462138757
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

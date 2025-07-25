@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 70cbe2613890b9949a67b6c1fc0ee33a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7251997122021241655
+    second: "Kh\xF3c Eject Group_0"
+  - first:
+      213: 5391081007693363202
+    second: "Kh\xF3c Eject Group_1"
+  - first:
+      213: -5821272101301206740
+    second: "Kh\xF3c Eject Group_2"
+  - first:
+      213: -2430416700214914920
+    second: "Kh\xF3c Eject Group_3"
+  - first:
+      213: -4899621829373657191
+    second: "Kh\xF3c Eject Group_4"
+  - first:
+      213: 8668017969511395569
+    second: "Kh\xF3c Eject Group_5"
+  - first:
+      213: -5282209411698426581
+    second: "Kh\xF3c Eject Group_6"
+  - first:
+      213: 3354117444561209432
+    second: "Kh\xF3c Eject Group_7"
+  - first:
+      213: -7777533842298916588
+    second: "Kh\xF3c Eject Group_8"
+  - first:
+      213: 6480111568842765354
+    second: "Kh\xF3c Eject Group_9"
+  - first:
+      213: 1488128435603668741
+    second: "Kh\xF3c Eject Group_10"
+  - first:
+      213: -7760584625083107297
+    second: "Kh\xF3c Eject Group_11"
+  - first:
+      213: 6526451152007454314
+    second: "Kh\xF3c Eject Group_12"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_0"
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7333b32b5f444a460800000000000000
+      internalID: 7251997122021241655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_1"
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 2
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 208fae20d97f0da40800000000000000
+      internalID: 5391081007693363202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_2"
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 2
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c21cc05cddfa63fa0800000000000000
+      internalID: -5821272101301206740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_3"
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 2
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 890538753ec654ed0800000000000000
+      internalID: -2430416700214914920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_4"
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 6
+        width: 156
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ffe6ec7eb010cb0800000000000000
+      internalID: -4899621829373657191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_5"
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 2
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0fd6b0b6cfa4870800000000000000
+      internalID: 8668017969511395569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_6"
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 4
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d7d72c682d1b6b0800000000000000
+      internalID: -5282209411698426581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_7"
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 6
+        width: 158
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85803028b083c8e20800000000000000
+      internalID: 3354117444561209432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_8"
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 4
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411b1357d26a01490800000000000000
+      internalID: -7777533842298916588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_9"
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 5
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a24b5c5832bfde950800000000000000
+      internalID: 6480111568842765354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_10"
+      rect:
+        serializedVersion: 2
+        x: 2391
+        y: 4
+        width: 156
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f70508de4e6a410800000000000000
+      internalID: 1488128435603668741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_11"
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 6
+        width: 156
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18309c966ddc4490800000000000000
+      internalID: -7760584625083107297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kh\xF3c Eject Group_12"
+      rect:
+        serializedVersion: 2
+        x: 2857
+        y: 6
+        width: 156
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ed75f7ebc929a50800000000000000
+      internalID: 6526451152007454314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
