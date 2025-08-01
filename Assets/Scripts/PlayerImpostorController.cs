@@ -112,12 +112,14 @@ public class PlayerImpostorController : MonoBehaviour
         if (targetCrew == null) return;
 
         targetCrew.Kill();
+        
 
         SetKillInteractable(false);
         isCoolingDown = true;
         cooldownTimer = killCooldown;
         killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
     }
+
 
     void HandleReport()
     {

@@ -1,258 +1,92 @@
+﻿using UnityEngine;
 using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class AIMove : MonoBehaviour
 {
-    [Header("Settings")]
-    public float moveSpeed = 2f;
-    public float killCooldown = 20f;
-    public float detectRange = 0.5f;
-
-    [Header("Body Sprites")]
-    public Sprite bodyStandingSprite;
-    public Sprite bodyLyingSprite;
-
-    [Header("Body Display")]
-    public GameObject bodyHolder; // GameObject con chua SpriteRenderer
-    public SpriteRenderer bodyRenderer; // SpriteRenderer cua bodyHolder
-
-    private Rigidbody2D rb;
+    [Header("Di chuyển")]
+    public float moveSpeed = 4f;
+    public Animator animator;
     private SpriteRenderer sr;
-    private Animator anim;
 
-    private Transform currentWaypoint;
-    private Transform previousWaypoint;
+    [Header("Waypoint")]
+    public Waypoint startWaypoint; // Gán ở Inspector
+    private Waypoint currentWaypoint;
 
-    private bool isImpostor;
-    private float killTimer;
-    private bool gameStarted = true;
     private bool isDoingTask = false;
-    private float taskTimer = 0f;
-    private bool canMove = false;
-    public bool isDead = false;
+    private Coroutine moveRoutine;
 
-    void OnEnable()
+    void Start()
     {
-        SceneIntroFade.OnFadeDone += EnableAIMove;
+        sr = GetComponent<SpriteRenderer>();
+
+        if (startWaypoint != null)
+        {
+            currentWaypoint = startWaypoint;
+            transform.position = currentWaypoint.transform.position;
+            moveRoutine = StartCoroutine(MoveToNextWaypoint());
+        }
+        else
+        {
+            Debug.LogWarning($"[AIMove] {gameObject.name} chưa gán startWaypoint.");
+        }
     }
 
-    void OnDisable()
+    IEnumerator MoveToNextWaypoint()
     {
-        SceneIntroFade.OnFadeDone -= EnableAIMove;
-    }
+        while (true)
+        {
+            if (currentWaypoint == null)
+            {
+                Debug.LogWarning($"{gameObject.name} không có waypoint hiện tại.");
+                yield break;
+            }
 
-    void EnableAIMove()
-    {
-        canMove = true;
+            Transform next = currentWaypoint.GetRandomNext();
+
+            if (next == null)
+            {
+                Debug.LogWarning($"{gameObject.name} không có waypoint kế tiếp.");
+                yield break;
+            }
+
+            Vector3 target = next.position;
+            animator.SetBool("isRunning", true);
+            FlipDirection(target - transform.position);
+
+            while (Vector3.Distance(transform.position, target) > 0.05f)
+            {
+                if (isDoingTask) yield return new WaitUntil(() => !isDoingTask); // Dừng giữa đường nếu đang làm task
+                transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            animator.SetBool("isRunning", false);
+            currentWaypoint = next.GetComponent<Waypoint>();
+            
+        }
     }
 
     public void StartTask(float duration)
     {
+        if (isDoingTask) return;
+        StartCoroutine(GoToTask(duration));
+    }
+
+    IEnumerator GoToTask(float duration)
+    {
         isDoingTask = true;
-        taskTimer = duration;
-        anim.SetBool("isRunning", false);
-        rb.linearVelocity = Vector2.zero;
+
+        animator.SetBool("isRunning", false); // Đứng yên làm task
+        yield return new WaitForSeconds(duration); // Thời gian làm task
+
+        isDoingTask = false;
     }
 
-    void Start()
+    private void FlipDirection(Vector3 direction)
     {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-
-        int aiIndex = GetAIIndexFromName();
-        isImpostor = PlayerPrefs.GetInt($"AI_{aiIndex}_IsImpostor", 0) == 1;
-
-        currentWaypoint = FindInitialWaypoint();
-        StartCoroutine(StartGameAfterDelay());
-
-        if (bodyHolder != null) bodyHolder.SetActive(false);
-    }
-
-    IEnumerator StartGameAfterDelay()
-    {
-        yield return new WaitForSeconds(20f);
-        gameStarted = true;
-    }
-
-    void Update()
-    {
-        if (!canMove || isDead || currentWaypoint == null) return;
-
-        if (isImpostor)
-        {
-            killTimer -= Time.deltaTime;
-            TryKillNearbyCrewmate();
-        }
-
-        if (isDoingTask)
-        {
-            taskTimer -= Time.deltaTime;
-            if (taskTimer <= 0f)
-            {
-                isDoingTask = false;
-                anim.SetBool("isRunning", true);
-            }
-            return;
-        }
-
-        Vector2 direction = ((Vector2)currentWaypoint.position - rb.position).normalized;
-        rb.MovePosition(rb.position + direction * moveSpeed * Time.deltaTime);
-
-        if (direction.x > 0.1f) sr.flipX = false;
-        else if (direction.x < -0.1f) sr.flipX = true;
-
-        anim.SetBool("isRunning", true);
-
-        float dist = Vector2.Distance(rb.position, currentWaypoint.position);
-        if (dist < 0.1f)
-        {
-            previousWaypoint = currentWaypoint;
-            currentWaypoint = GetNextWaypoint(currentWaypoint, previousWaypoint);
-
-            if (currentWaypoint == null)
-                anim.SetBool("isRunning", false);
-        }
-    }
-
-    Transform GetNextWaypoint(Transform current, Transform previous)
-    {
-        Waypoint wp = current.GetComponent<Waypoint>();
-        if (wp == null || wp.nextWaypoints.Length == 0) return null;
-
-        Transform[] filtered = System.Array.FindAll(wp.nextWaypoints, t => t != previous);
-        if (filtered.Length == 0) filtered = wp.nextWaypoints;
-
-        return filtered[Random.Range(0, filtered.Length)];
-    }
-
-    Transform FindInitialWaypoint()
-    {
-        Waypoint[] all = FindObjectsByType<Waypoint>(FindObjectsSortMode.None);
-        float minDist = Mathf.Infinity;
-        Transform nearest = null;
-
-        foreach (Waypoint wp in all)
-        {
-            float dist = Vector2.Distance(transform.position, wp.transform.position);
-            if (dist < minDist)
-            {
-                minDist = dist;
-                nearest = wp.transform;
-            }
-        }
-        return nearest;
-    }
-
-    void TryKillNearbyCrewmate()
-    {
-        if (killTimer > 0 || isDead) return;
-
-        GameObject[] others = GameObject.FindGameObjectsWithTag("Crewmate");
-        foreach (GameObject target in others)
-        {
-            if (target == gameObject) continue;
-
-            float dist = Vector2.Distance(transform.position, target.transform.position);
-            if (dist < detectRange)
-            {
-                Debug.Log($"{gameObject.name} killed {target.name}");
-
-                // === Danh dau la Body ===
-                target.tag = "Body";
-
-                AIMove victimAI = target.GetComponent<AIMove>();
-                if (victimAI != null)
-                {
-                    victimAI.isDead = true;
-
-                    // Tat hoan toan Animator + dung di chuyen
-                    if (victimAI.anim != null)
-                        victimAI.anim.enabled = false;
-
-                    if (victimAI.rb != null)
-                    {
-                        victimAI.rb.linearVelocity = Vector2.zero;
-                        victimAI.rb.bodyType = RigidbodyType2D.Kinematic;
-                    }
-
-                 
-                    Collider2D col = target.GetComponent<Collider2D>();
-                    if (col != null) col.enabled = false;
-
-                   
-                    if (victimAI.sr != null)
-                        victimAI.sr.enabled = false;
-
-                   
-                    if (victimAI.bodyHolder != null && victimAI.bodyRenderer != null)
-                    {
-                        victimAI.bodyHolder.SetActive(true);
-                        victimAI.bodyRenderer.sortingLayerName = "Body";
-                        victimAI.bodyRenderer.sprite = victimAI.bodyStandingSprite;
-                        victimAI.StartCoroutine(victimAI.StandThenFall());
-                    }
-                }
-
-                killTimer = killCooldown;
-                CheckWinLose();
-                break;
-            }
-        }
-    }
-
-
-    public IEnumerator StandThenFall()
-    {
-        yield return new WaitForSeconds(1f);
-        if (bodyRenderer != null)
-        {
-            bodyRenderer.sprite = bodyLyingSprite;
-        }
-    }
-
-
-    void CheckWinLose()
-    {
-        int countImp = 0;
-        int countCrewAlive = 0;
-
-        GameObject[] all = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-        foreach (GameObject go in all)
-        {
-            if (!go.activeInHierarchy) continue;
-
-            AIMove ai = go.GetComponent<AIMove>();
-            if (ai == null) continue;
-
-            if (ai.isDead) continue;
-
-            if (go.tag == "Impostor") countImp++;
-            else if (go.tag == "Crewmate") countCrewAlive++;
-        }
-
-        if (countImp == 0)
-        {
-            Debug.Log("All impostors defeated. You win!");
-            SceneManager.LoadScene("Win");
-        }
-        else if (countImp >= countCrewAlive && countCrewAlive > 0)
-        {
-            Debug.Log("Too many impostors. You lose!");
-            SceneManager.LoadScene("Lose");
-        }
-    }
-
-    int GetAIIndexFromName()
-    {
-        string name = gameObject.name;
-        if (name.StartsWith("AI_"))
-        {
-            string indexStr = name.Substring(3);
-            int.TryParse(indexStr, out int index);
-            return index;
-        }
-        return 0;
+        if (direction.x > 0.01f)
+            sr.flipX = false;
+        else if (direction.x < -0.01f)
+            sr.flipX = true;
     }
 }
