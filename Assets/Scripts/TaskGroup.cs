@@ -10,7 +10,7 @@ public class TaskGroup : MonoBehaviour
 
     [Header("Fade Settings")]
     public CanvasGroup blackPanelCanvasGroup; // CanvasGroup panel den
-    public float fadeDuration = 2f;
+    public float fadeDuration = 1f;
 
     private int totalTasks;
     private int completedTasks = 0;
@@ -53,7 +53,7 @@ public class TaskGroup : MonoBehaviour
 
     IEnumerator HandleWinSequence()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         if (blackPanelCanvasGroup != null)
         {

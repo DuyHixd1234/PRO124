@@ -48,7 +48,7 @@ public class StartGameButton : MonoBehaviour
         countdownText.text = "";
         StartCoroutine(FadeToBlack());
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(nextSceneName);
     }
 

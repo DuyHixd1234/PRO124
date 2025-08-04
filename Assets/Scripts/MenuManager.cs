@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -11,18 +11,50 @@ public class MenuManager : MonoBehaviour
     public GameObject fadePanelGO;
     public Image fadePanelImage;
 
-    void Start()
+    private void Start()
     {
         startButton.interactable = false;
         fadePanelGO.SetActive(false);
+
+        // Xoá dữ liệu cũ
         PlayerPrefs.DeleteKey("VotedOutIndex");
         for (int i = 0; i < 9; i++)
             PlayerPrefs.DeleteKey($"AI_{i}_IsDead");
+
+        // Tự động focus input field
+        nameInput.ActivateInputField();
     }
 
-    void Update()
+    private void Update()
     {
-        startButton.interactable = nameInput.text.Length > 0;
+        // Giới hạn 20 ký tự (không tính dấu cách)
+        string raw = nameInput.text;
+        string noSpace = raw.Replace(" ", "");
+        if (noSpace.Length > 20)
+        {
+            int validCount = 0;
+            string result = "";
+            foreach (char c in raw)
+            {
+                if (c != ' ') validCount++;
+                if (validCount > 20) break;
+                result += c;
+            }
+            nameInput.text = result;
+            nameInput.caretPosition = result.Length;
+        }
+
+        // Bật / tắt nút start tùy theo nội dung input
+        startButton.interactable = nameInput.text.Trim().Length > 0;
+
+        // Nếu đang focus và bấm Enter thì cũng start game
+        if (nameInput.isFocused && Input.GetKeyDown(KeyCode.Return))
+        {
+            if (startButton.interactable)
+            {
+                OnStartGame();
+            }
+        }
     }
 
     public void OnStartGame()
@@ -33,11 +65,12 @@ public class MenuManager : MonoBehaviour
             data.AddComponent<PlayerData>();
         }
 
-        PlayerData.Instance.playerName = nameInput.text;
+        PlayerData.Instance.playerName = nameInput.text.Trim();
 
         startButton.interactable = false;
         StartCoroutine(FadeAndLoadScene("Lobby"));
     }
+
 
     IEnumerator FadeAndLoadScene(string sceneName)
     {

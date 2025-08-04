@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropDistance: 38
-  dropSpeed: 8
+  dropSpeed: 11
 --- !u!114 &884559480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,7 +3372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropDistance: 38
-  dropSpeed: 8
+  dropSpeed: 11
 --- !u!114 &1179984389
 MonoBehaviour:
   m_ObjectHideFlags: 0
