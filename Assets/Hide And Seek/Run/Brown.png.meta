@@ -125,11 +125,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 106
-        y: 88
+        y: 53
         width: 155
-        height: 225
+        height: 260
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,9 +149,9 @@ TextureImporter:
         x: 317
         y: 53
         width: 165
-        height: 208
+        height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: Brown_2
       rect:
         serializedVersion: 2
-        x: 540
-        y: 92
+        x: 541
+        y: 52
         width: 172
-        height: 206
+        height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,11 +191,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 769
-        y: 91
+        y: 53
         width: 178
-        height: 206
+        height: 258
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,9 +215,9 @@ TextureImporter:
         x: 994
         y: 53
         width: 172
-        height: 218
+        height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -230,77 +230,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Brown_5
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2fb09e6776574d40800000000000000
-      internalID: 5568514535222984490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Brown_6
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34d911bfbab019bd0800000000000000
-      internalID: -2625304274500739773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Brown_7
-      rect:
-        serializedVersion: 2
-        x: 786
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aac73dbe53a4fdb20800000000000000
-      internalID: 3161327058887605418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8dd983a306c15d84b85f986ee95ce662
     internalID: 0
     vertices: []
     indices: 
@@ -309,7 +243,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Brown_0: -5829722220832839305
+      Brown_1: 3328905547775817248
+      Brown_2: -1417038626427811607
+      Brown_3: -4160047851729834937
+      Brown_4: -2718919651984597301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

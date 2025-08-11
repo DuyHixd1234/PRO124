@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 using System.Collections;
 
 public class VotingButton : MonoBehaviour
@@ -18,10 +17,8 @@ public class VotingButton : MonoBehaviour
     public Button buttonItsHim;
 
     [Header("Data")]
-    public int characterIndex;
-    public bool isPlayer;
+    public int characterIndex; // Human = 0, AI = 1–9
     public GameObject voteAllocatorTrigger;
-
     public TMP_Text voteCountTMP;
 
     private string characterName;
@@ -30,13 +27,13 @@ public class VotingButton : MonoBehaviour
 
     void Start()
     {
-        if (isPlayer)
+        characterName = PlayerPrefs.GetString($"Shuffle_Name_{characterIndex}", $"Unknown {characterIndex}");
+        nameText.text = characterName;
+
+        if (characterIndex == 0)
         {
             VotingUIHelper.Instance.playerButton = this;
         }
-
-        characterName = PlayerPrefs.GetString($"Shuffle_Name_{characterIndex}", $"Unknown {characterIndex}");
-        nameText.text = characterName;
 
         VotingPanelManager.Instance?.Register(this);
 
@@ -50,6 +47,8 @@ public class VotingButton : MonoBehaviour
         }
 
         buttonSelf.onClick.AddListener(OnButtonClicked);
+        buttonYes.onClick.AddListener(OnClickYes);
+        buttonItsHim.onClick.AddListener(OnClickItsHim);
         buttonNo.onClick.AddListener(OnClickNo);
 
         votePanel.SetActive(false);
@@ -96,9 +95,16 @@ public class VotingButton : MonoBehaviour
         votePanel.SetActive(true);
 
         string role = PlayerPrefs.GetString("PlayerRole", "Crewmate");
-        buttonItsHim.gameObject.SetActive(role == "Crewmate");
 
-        //Debug.Log("ROLE: " + role);
+        if (VotingUIHelper.Instance.playerButton != null &&
+            VotingUIHelper.Instance.playerButton.characterIndex == 0)
+        {
+            buttonItsHim.gameObject.SetActive(role == "Crewmate");
+        }
+        else
+        {
+            buttonItsHim.gameObject.SetActive(false);
+        }
     }
 
     void OnClickYes()
@@ -115,7 +121,7 @@ public class VotingButton : MonoBehaviour
         PlayerPrefs.SetInt("VotedOutIndex", characterIndex);
         Debug.Log($"[VOTE] {characterName} bị vote (index {characterIndex})");
 
-        if (isPlayer && voteAllocatorTrigger != null)
+        if (characterIndex == 0 && voteAllocatorTrigger != null)
             voteAllocatorTrigger.SetActive(true);
     }
 
@@ -141,7 +147,7 @@ public class VotingButton : MonoBehaviour
         VotingLockoutManager.LockAllButtonsExcept(this.gameObject);
         VotingUIHelper.Instance?.ShowHumanIVoted();
 
-        if (isPlayer && voteAllocatorTrigger != null)
+        if (characterIndex == 0 && voteAllocatorTrigger != null)
             voteAllocatorTrigger.SetActive(true);
     }
 
@@ -150,16 +156,25 @@ public class VotingButton : MonoBehaviour
         votePanel.SetActive(false);
     }
 
-    // ✅ Gọi hàm này khi cần hiển thị số vote
     public void ShowVoteCount()
     {
-        if (voteCountTMP == null) return;
+        if (voteCountTMP == null || nameText == null) return;
 
-        int targetVotes = VotingDataManager.Instance.voteCounts.ContainsKey(characterName) ? VotingDataManager.Instance.voteCounts[characterName] : 0;
+        string displayName = nameText.text;             // Tên hiển thị
+        string keyName = characterName;                 // Tên làm key trong voteCounts
+
+        int targetVotes = VotingDataManager.Instance.voteCounts.ContainsKey(keyName)
+            ? VotingDataManager.Instance.voteCounts[keyName]
+            : 0;
 
         voteCountTMP.gameObject.SetActive(true);
+
+        Debug.Log($"🧾 [ShowVoteCount] {displayName} (index {characterIndex}) | key dùng: '{keyName}' | có {targetVotes} phiếu.");
+
         StartCoroutine(AnimateVoteCount(targetVotes));
     }
+
+
 
     IEnumerator AnimateVoteCount(int target)
     {

@@ -15,6 +15,11 @@ public class AIMove : MonoBehaviour
     private bool isDoingTask = false;
     private Coroutine moveRoutine;
 
+    [Header("Canvas cần kiểm tra")]
+    public GameObject canvasDeadBody;
+    public GameObject canvasDiscuss;
+    public GameObject canvasResult;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -35,6 +40,15 @@ public class AIMove : MonoBehaviour
     {
         while (true)
         {
+            // Nếu 1 trong 3 canvas bật, reset về vị trí ban đầu và dừng di chuyển
+            if (IsAnyCanvasActive())
+            {
+                animator.SetBool("isRunning", false);
+                transform.position = startWaypoint.transform.position;
+                yield return null;
+                continue;
+            }
+
             if (currentWaypoint == null)
             {
                 Debug.LogWarning($"{gameObject.name} không có waypoint hiện tại.");
@@ -55,15 +69,33 @@ public class AIMove : MonoBehaviour
 
             while (Vector3.Distance(transform.position, target) > 0.05f)
             {
-                if (isDoingTask) yield return new WaitUntil(() => !isDoingTask); // Dừng giữa đường nếu đang làm task
+                if (isDoingTask)
+                {
+                    yield return new WaitUntil(() => !isDoingTask);
+                }
+
+                if (IsAnyCanvasActive())
+                {
+                    animator.SetBool("isRunning", false);
+                    transform.position = startWaypoint.transform.position;
+                    yield return null;
+                    break;
+                }
+
                 transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
                 yield return null;
             }
 
             animator.SetBool("isRunning", false);
             currentWaypoint = next.GetComponent<Waypoint>();
-            
         }
+    }
+
+    bool IsAnyCanvasActive()
+    {
+        return (canvasDeadBody != null && canvasDeadBody.activeSelf) ||
+               (canvasDiscuss != null && canvasDiscuss.activeSelf) ||
+               (canvasResult != null && canvasResult.activeSelf);
     }
 
     public void StartTask(float duration)
@@ -75,10 +107,8 @@ public class AIMove : MonoBehaviour
     IEnumerator GoToTask(float duration)
     {
         isDoingTask = true;
-
-        animator.SetBool("isRunning", false); // Đứng yên làm task
-        yield return new WaitForSeconds(duration); // Thời gian làm task
-
+        animator.SetBool("isRunning", false);
+        yield return new WaitForSeconds(duration);
         isDoingTask = false;
     }
 

@@ -125,11 +125,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 106
-        y: 88
+        y: 51
         width: 155
-        height: 225
+        height: 262
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,9 +149,9 @@ TextureImporter:
         x: 317
         y: 53
         width: 165
-        height: 208
+        height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,11 +169,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 540
-        y: 92
+        y: 53
         width: 172
-        height: 206
+        height: 262
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,11 +191,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 769
-        y: 91
+        y: 51
         width: 178
-        height: 206
+        height: 263
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,9 +215,9 @@ TextureImporter:
         x: 994
         y: 53
         width: 172
-        height: 218
+        height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -230,77 +230,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "X\xE1m_5"
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dcd57c599c91014d0800000000000000
-      internalID: -3166002184449466931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "X\xE1m_6"
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 801fcf662b09deb80800000000000000
-      internalID: -8363869837050711800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "X\xE1m_7"
-      rect:
-        serializedVersion: 2
-        x: 786
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4347bb9e623cdfa60800000000000000
-      internalID: 7709532709025707060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: db537964bd8eaaf4091dad5cdc5292dd
     internalID: 0
     vertices: []
     indices: 
@@ -309,7 +243,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "X\xE1m_0": 5215309590570777170
+      "X\xE1m_1": 7815864856577749134
+      "X\xE1m_2": -476008866298607800
+      "X\xE1m_3": -7200559041086975640
+      "X\xE1m_4": 8123865758949820199
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

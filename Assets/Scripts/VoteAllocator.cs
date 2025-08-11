@@ -13,9 +13,11 @@ public class VoteAllocator : MonoBehaviour
     public GameObject skipButtonObject;               // Button SKIP
     public GameObject voteSummaryManager;             // Hiện sau khi xử lý xong
     public TMP_Text skipVoteCountText;                // TMP hiển thị số vote SKIP
-    string topVoted = "";
-    int topVote = -1;
-    bool tie = false;
+
+    //string topVoted = "";
+    //int topVote = -1;
+    //bool tie = false;
+
     void OnEnable()
     {
         StartCoroutine(AllocateVotes());
@@ -36,7 +38,8 @@ public class VoteAllocator : MonoBehaviour
                 voteTargets.Add(name);
                 voteResults[name] = 0;
 
-                if (!vb.isPlayer)
+                // Thêm vào danh sách AI nếu không phải Human (Human = index 0)
+                if (vb.characterIndex != 0)
                     aiButtons.Add(vb);
             }
         }
@@ -94,4 +97,3 @@ public class VoteAllocator : MonoBehaviour
             voteSummaryManager.SetActive(true);
     }
 }
-    

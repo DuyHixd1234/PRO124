@@ -125,11 +125,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 106
-        y: 88
+        y: 55
         width: 155
-        height: 225
+        height: 258
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,9 +149,9 @@ TextureImporter:
         x: 317
         y: 53
         width: 165
-        height: 208
+        height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,11 +169,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 540
-        y: 92
+        y: 53
         width: 172
-        height: 206
+        height: 260
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,11 +191,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 769
-        y: 91
+        y: 52
         width: 178
-        height: 206
+        height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,9 +215,9 @@ TextureImporter:
         x: 994
         y: 53
         width: 172
-        height: 218
+        height: 260
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -230,77 +230,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "Xanh \u0110\u1EADm_5"
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8b63f97ecb144d320800000000000000
-      internalID: 2581760765985765048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Xanh \u0110\u1EADm_6"
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 130873e3c4312d320800000000000000
-      internalID: 2581146754618982449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Xanh \u0110\u1EADm_7"
-      rect:
-        serializedVersion: 2
-        x: 786
-        y: 53
-        width: 137
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0416df9b9e83678f0800000000000000
-      internalID: -543184128552640192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 118dc4f3ccf2dfc4199fc98a12bf6b23
     internalID: 0
     vertices: []
     indices: 
@@ -309,7 +243,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Xanh \u0110\u1EADm_0": -7263131031687390088
+      "Xanh \u0110\u1EADm_1": 8134659972638340160
+      "Xanh \u0110\u1EADm_2": 7155853330531962773
+      "Xanh \u0110\u1EADm_3": 3373027438396297842
+      "Xanh \u0110\u1EADm_4": 2560860268068748875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

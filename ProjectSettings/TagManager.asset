@@ -13,6 +13,15 @@ TagManager:
   - Laptop
   - Obstacle
   - FOV
+  - Blue
+  - Cyan
+  - Coral
+  - Purple
+  - Gray
+  - Pink
+  - Lime
+  - Orange
+  - Brown
   layers:
   - Default
   - TransparentFX

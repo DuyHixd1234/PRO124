@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class PlayerImpostorController : MonoBehaviour
 {
     [Header("UI Elements")]
     public Button killButton;
     public TMP_Text killCooldownText;
-    public Button reportButton;
 
     [Header("Canvas Group")]
     public CanvasGroup killButtonGroup;
-    public CanvasGroup reportButtonGroup;
 
     [Header("Cooldown")]
     public float killCooldown = 20f;
@@ -23,23 +19,18 @@ public class PlayerImpostorController : MonoBehaviour
     [Header("Detection")]
     public Transform detectZone;
     private AICrewmate targetCrew;
-    private GameObject nearbyBody;
 
     [Header("Canvas")]
     public GameObject gameplayCanvas;
-    public GameObject deadBodyReportedCanvas;
-    public GameObject discussCanvas;
 
     void Start()
     {
         SetKillInteractable(false); // ✅ Tắt nút Kill từ đầu
-        SetReportInteractable(false);
 
         cooldownTimer = killCooldown;
         killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
 
         killButton.onClick.AddListener(HandleKill);
-        reportButton.onClick.AddListener(HandleReport);
     }
 
     void Update()
@@ -65,12 +56,6 @@ public class PlayerImpostorController : MonoBehaviour
         killButtonGroup.alpha = state ? 1f : 0.4f;
     }
 
-    void SetReportInteractable(bool state)
-    {
-        reportButton.interactable = state;
-        reportButtonGroup.alpha = state ? 1f : 0.4f;
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Crewmate") && !isCoolingDown)
@@ -80,12 +65,6 @@ public class PlayerImpostorController : MonoBehaviour
             {
                 SetKillInteractable(true);
             }
-        }
-
-        if (collision.CompareTag("Body"))
-        {
-            nearbyBody = collision.gameObject;
-            SetReportInteractable(true);
         }
     }
 
@@ -99,12 +78,6 @@ public class PlayerImpostorController : MonoBehaviour
                 SetKillInteractable(false);
             }
         }
-
-        if (collision.CompareTag("Body"))
-        {
-            nearbyBody = null;
-            SetReportInteractable(false);
-        }
     }
 
     void HandleKill()
@@ -112,27 +85,10 @@ public class PlayerImpostorController : MonoBehaviour
         if (targetCrew == null) return;
 
         targetCrew.Kill();
-        
 
         SetKillInteractable(false);
         isCoolingDown = true;
         cooldownTimer = killCooldown;
         killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
-    }
-
-
-    void HandleReport()
-    {
-        SetReportInteractable(false);
-        gameplayCanvas.SetActive(false);
-        StartCoroutine(ReportSequence());
-    }
-
-    IEnumerator ReportSequence()
-    {
-        deadBodyReportedCanvas.SetActive(true);
-        yield return new WaitForSeconds(2.6f);
-        deadBodyReportedCanvas.SetActive(false);
-        discussCanvas.SetActive(true);
     }
 }

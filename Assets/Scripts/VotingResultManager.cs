@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class VotingResultManager : MonoBehaviour
 {
-    [Header("Sprites cho AI (index 0–8)")]
-    public Sprite[] indexToAISprite; // 9 sprites tương ứng Shuffle_Index_0...8
+    [Header("Sprites cho AI (index 1–9)")]
+    public Sprite[] indexToAISprite; // 9 sprites tương ứng Shuffle_Index_1...9
 
     [Header("Sprites cho Human dựa theo ColorIndex: 0=Red, 1=Yellow, 2=DarkGreen, 3=White")]
-    public Sprite[] indexToHumanSprite; // 4 sprite tương ứng màu Human
+    public Sprite[] indexToHumanSprite; // 4 sprite tương ứng màu Human (index 0)
 
     [Header("Sprite riêng khi Skip")]
     public Sprite skipSprite;
@@ -34,6 +33,10 @@ public class VotingResultManager : MonoBehaviour
     [Header("After Text Complete")]
     public GameObject afterTextObject;
     public float delayBeforeReturnToMap = 2f;
+
+    [Header("New Settings - Instead of Load Scene")]
+    public GameObject blackOverlay;   // Gán object đen (đang ẩn)
+    public Canvas parentCanvas;       // Gán Canvas cha của panel này
 
     void Start()
     {
@@ -59,38 +62,35 @@ public class VotingResultManager : MonoBehaviour
             return;
         }
 
-        string votedOutType = PlayerPrefs.GetString("VotedOutType", "AI");
+        int ejectedIndex = PlayerPrefs.GetInt("VotedOutIndex", -1);
+        if (ejectedIndex < 0 || ejectedIndex > 9)
+        {
+            Debug.LogError("❌ VotedOutIndex không hợp lệ.");
+            StartCoroutine(PlayTextTyping("Lỗi vote."));
+            return;
+        }
 
         Sprite selectedSprite = null;
-        string nameEjected = "???";
-        bool isImpostor = false;
+        string nameEjected = PlayerPrefs.GetString($"Shuffle_Name_{ejectedIndex}", $"Unknown {ejectedIndex}");
+        bool isImpostor = PlayerPrefs.GetInt($"Shuffle_Role_{ejectedIndex}", 0) == 1;
 
-        if (votedOutType == "Human")
+        if (ejectedIndex == 0)
         {
-            int colorIndex = PlayerPrefs.GetInt("HumanColorIndex", -1);
+            int colorIndex = PlayerPrefs.GetInt("HumanColorIndex", 0);
             if (colorIndex >= 0 && colorIndex < indexToHumanSprite.Length)
                 selectedSprite = indexToHumanSprite[colorIndex];
             else
                 Debug.LogWarning($"⚠️ Không tìm thấy sprite Human color index {colorIndex}");
-
-            nameEjected = PlayerPrefs.GetString("HumanName", "You");
-            isImpostor = PlayerPrefs.GetInt("HumanRole", 0) == 1; // 0 = Crewmate, 1 = Impostor
         }
         else
         {
-            int ejectedIndex = PlayerPrefs.GetInt("VotedOutIndex", -1);
-            if (ejectedIndex < 0 || ejectedIndex >= indexToAISprite.Length)
-            {
-                Debug.LogError("❌ Không tìm thấy index AI cho Human hoặc ngoài giới hạn.");
-                StartCoroutine(PlayTextTyping("Lỗi vote.")); return;
-            }
-
-            selectedSprite = indexToAISprite[ejectedIndex];
-            nameEjected = PlayerPrefs.GetString($"Shuffle_Name_{ejectedIndex}", $"Unknown {ejectedIndex}");
-            isImpostor = PlayerPrefs.GetInt($"Shuffle_Role_{ejectedIndex}", 0) == 1;
+            int aiSpriteIndex = ejectedIndex - 1;
+            if (aiSpriteIndex >= 0 && aiSpriteIndex < indexToAISprite.Length)
+                selectedSprite = indexToAISprite[aiSpriteIndex];
+            else
+                Debug.LogWarning($"⚠️ Không tìm thấy sprite AI cho index {ejectedIndex}");
         }
 
-        // 🖼️ Hiển thị sprite
         if (selectedSprite != null)
         {
             ejectImage.sprite = selectedSprite;
@@ -101,11 +101,9 @@ public class VotingResultManager : MonoBehaviour
         }
 
         string finalText = $"{nameEjected} was{(isImpostor ? "" : " not")} An Impostor.";
-
         StartCoroutine(PlayEjectAnimation());
-        StartCoroutine(PlayTextTyping(finalText)); // ✅ Dòng bạn cần được đưa lại đây
+        StartCoroutine(PlayTextTyping(finalText));
     }
-
 
     IEnumerator PlayEjectAnimation()
     {
@@ -150,6 +148,12 @@ public class VotingResultManager : MonoBehaviour
             afterTextObject.SetActive(true);
 
         yield return new WaitForSeconds(delayBeforeReturnToMap);
-        SceneManager.LoadScene("Map");
+
+        // Thay vì load scene, bật overlay đen và destroy canvas
+        if (blackOverlay != null)
+            blackOverlay.SetActive(true);
+
+        if (parentCanvas != null)
+            Destroy(parentCanvas.gameObject);
     }
 }

@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: e7fbd2f9721bcb4468339d511659e9c3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lose.unity
     guid: 53a9bd4515f1a5b4da746c11e2f5cd85
   - enabled: 1
@@ -29,6 +29,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VoteResult.unity
     guid: b7cbeed6c113a3f49848ce17776cc81a
+  - enabled: 1
+    path: Assets/Scenes/HSLoading.unity
+    guid: 91dfa21e7f9571a49962f5db0dc3039c
+  - enabled: 1
+    path: Assets/Scenes/HSMap.unity
+    guid: 18b9b80ea5fa008419f5e5af52ebfdd0
+  - enabled: 1
+    path: Assets/Scenes/HSWin.unity
+    guid: d93517976284c0542b798463bde15c5d
+  - enabled: 1
+    path: Assets/Scenes/HSLose.unity
+    guid: bfa8d8254ccbff64786b3d7881b72049
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

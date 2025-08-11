@@ -35,17 +35,17 @@ public class DeathDisplayManager : MonoBehaviour
     [Header("Panel chứa các image hiển thị")]
     public GameObject DeathDisplayPanel;
 
+    [Header("Bản sao tiếp theo (phase kế tiếp)")]
+    public GameObject nextPhaseObject; // Duplicate script ẩn sẵn, chỉ bật khi tới lượt
+
     private Dictionary<GameObject, Sprite> aiToSprite;
-    private Dictionary<GameObject, bool> currentStates = new();
-
     private List<Sprite> recentDeaths = new();
-    private HashSet<string> permanentlyDead = new(); // Danh sách AI đã chết
-
+    private HashSet<string> permanentlyDead = new();
     private bool hasPanelActivated = false;
 
     void Start()
     {
-        Debug.Log("[DeathDisplay] Script đã khởi động");
+        Debug.Log($"[DeathDisplay] {gameObject.name} đã khởi động");
 
         aiToSprite = new Dictionary<GameObject, Sprite>
         {
@@ -60,27 +60,21 @@ public class DeathDisplayManager : MonoBehaviour
             { Orange, OrangeSprite }
         };
 
+        // Ghi nhận trạng thái ban đầu
         foreach (var ai in aiToSprite.Keys)
         {
-            currentStates[ai] = ai.activeSelf;
+            if (ai == null) continue;
 
             string name = ai.name;
 
             if (!AIStateTracker.PreviousStates.ContainsKey(name))
-            {
                 AIStateTracker.PreviousStates[name] = ai.activeSelf;
-                Debug.Log($"[DeathDisplay] Lưu trạng thái ban đầu: {name} = {ai.activeSelf}");
 
-                if (!ai.activeSelf)
-                {
-                    permanentlyDead.Add(name);
-                    recentDeaths.Add(aiToSprite[ai]);
-                    Debug.Log($"[DeathDisplay] Ghi nhận AI chết sẵn: {name}");
-                }
-            }
-            else
+            // Nếu ngay từ đầu đã chết -> ghi nhận luôn
+            if (!ai.activeSelf)
             {
-                Debug.Log($"[DeathDisplay] Đã có trạng thái cũ: {name} = {AIStateTracker.PreviousStates[name]}");
+                permanentlyDead.Add(name);
+                recentDeaths.Add(aiToSprite[ai]);
             }
         }
 
@@ -89,8 +83,8 @@ public class DeathDisplayManager : MonoBehaviour
 
     void Update()
     {
-        CheckNewDeaths(); // Luôn theo dõi kill
-        CheckPanelActivation(); // Chờ panel bật lên để show
+        CheckNewDeaths();
+        CheckPanelActivation();
     }
 
     private void CheckNewDeaths()
@@ -98,8 +92,9 @@ public class DeathDisplayManager : MonoBehaviour
         foreach (var pair in aiToSprite)
         {
             GameObject ai = pair.Key;
-            string name = ai.name;
+            if (ai == null) continue;
 
+            string name = ai.name;
             bool wasAlive = AIStateTracker.PreviousStates.ContainsKey(name) ? AIStateTracker.PreviousStates[name] : true;
             bool isAliveNow = ai.activeSelf;
 
@@ -107,7 +102,7 @@ public class DeathDisplayManager : MonoBehaviour
             {
                 permanentlyDead.Add(name);
                 recentDeaths.Add(pair.Value);
-                Debug.Log($"[DeathDisplay] AI {name} vừa bị giết");
+                Debug.Log($"[DeathDisplay] {name} vừa bị giết");
             }
 
             AIStateTracker.PreviousStates[name] = isAliveNow;
@@ -134,51 +129,53 @@ public class DeathDisplayManager : MonoBehaviour
         int count = recentDeaths.Count;
         if (count == 0)
         {
-            Debug.Log("[DeathDisplay] Không có ai chết trong pha này.");
+            Debug.Log($"[DeathDisplay] {gameObject.name} - Không có ai chết.");
+            GoToNextPhase();
             return;
         }
-
-        Debug.Log($"[DeathDisplay] Có {count} AI chết trong pha này.");
 
         HideAllImages();
 
         if (count % 2 == 1) // Lẻ
         {
-            // Hiện center trước
             OddImages[0].sprite = recentDeaths[0];
             OddImages[0].gameObject.SetActive(true);
 
-            // Các ảnh còn lại
             for (int i = 1; i < count && i < OddImages.Length; i++)
             {
-                Image img = OddImages[i];
-                img.sprite = recentDeaths[i];
-                img.gameObject.SetActive(true);
+                OddImages[i].sprite = recentDeaths[i];
+                OddImages[i].gameObject.SetActive(true);
             }
         }
         else // Chẵn
         {
-            // KHÔNG hiện OddImages[0] nữa!
             for (int i = 0; i < count && i < EvenImages.Length; i++)
             {
-                Image img = EvenImages[i];
-                img.sprite = recentDeaths[i];
-                img.gameObject.SetActive(true);
+                EvenImages[i].sprite = recentDeaths[i];
+                EvenImages[i].gameObject.SetActive(true);
             }
         }
+
+        GoToNextPhase();
     }
 
+    private void GoToNextPhase()
+    {
+        if (nextPhaseObject != null)
+        {
+            nextPhaseObject.SetActive(true);
+            Debug.Log($"[DeathDisplay] {gameObject.name} kích hoạt {nextPhaseObject.name}");
+        }
+
+        Destroy(this); // Chỉ hủy script
+    }
 
     private void HideAllImages()
     {
         foreach (var img in OddImages)
-        {
-            img.gameObject.SetActive(false);
-        }
+            if (img != null) img.gameObject.SetActive(false);
 
         foreach (var img in EvenImages)
-        {
-            img.gameObject.SetActive(false);
-        }
+            if (img != null) img.gameObject.SetActive(false);
     }
 }

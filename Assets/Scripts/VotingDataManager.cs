@@ -7,7 +7,7 @@ public class VotingDataManager : MonoBehaviour
 
     public Dictionary<string, int> voteCounts = new Dictionary<string, int>();
     private bool forceVoteUsed = false;
-    private bool forceVote = false;
+    //private bool forceVote = false;
     private string forceVoteTarget = "";
 
     void Awake()

@@ -27,8 +27,8 @@ public class IVotedController : MonoBehaviour
 
             foreach (VotingButton vb in votingButtons)
             {
-                // Bo qua human
-                if (vb.isPlayer) continue;
+                // Bỏ qua Human (index 0)
+                if (vb.characterIndex == 0) continue;
 
                 if (vb.statusCheckObject != null && vb.statusCheckObject.activeSelf)
                 {
@@ -43,7 +43,6 @@ public class IVotedController : MonoBehaviour
                     }
                 }
             }
-
 
             if (allVoted)
             {

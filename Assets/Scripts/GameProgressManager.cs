@@ -1,42 +1,79 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.SceneManagement;
 
 public class GameProgressManager : MonoBehaviour
 {
     public static GameProgressManager Instance;
 
-    [Header("Tên AI theo thứ tự (0 → 8), khớp với Shuffle.cs")]
-    [SerializeField] private List<string> aiNames;
-
-    private HashSet<int> eliminatedAIIndices = new HashSet<int>();
+    private List<AIIdentifier> allAIs = new List<AIIdentifier>();
+    private Dictionary<string, bool> previousStates = new Dictionary<string, bool>();
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // giữ khi load scene mới
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        RefreshAIs();
+    }
+
+    void RefreshAIs()
+    {
+        allAIs.Clear();
+
+        // ✅ Dùng API mới
+        var identifiers = Object.FindObjectsByType<AIIdentifier>(FindObjectsSortMode.None);
+
+        foreach (var ai in identifiers) // 🟢 đúng tên biến
+        {
+            if (!string.IsNullOrEmpty(ai.aiID))
+            {
+                allAIs.Add(ai);
+
+                string key = $"AI_Eliminated_{ai.aiID}";
+                if (PlayerPrefs.GetInt(key, 0) == 1)
+                {
+                    ai.gameObject.SetActive(false);
+                    Debug.Log($"[ProgressManager] AI {ai.aiID} đã bị loại → SetActive(false)");
+                }
+
+                previousStates[ai.aiID] = ai.gameObject.activeSelf;
+            }
         }
     }
 
-    public void EliminateAI(int index)
+    void Update()
     {
-        if (!eliminatedAIIndices.Contains(index))
-            eliminatedAIIndices.Add(index);
+        foreach (var ai in allAIs)
+        {
+            if (ai == null || string.IsNullOrEmpty(ai.aiID)) continue;
+
+            bool current = ai.gameObject.activeSelf;
+            bool previous = previousStates.ContainsKey(ai.aiID) ? previousStates[ai.aiID] : true;
+
+            if (previous && !current)
+            {
+                string key = $"AI_Eliminated_{ai.aiID}";
+                PlayerPrefs.SetInt(key, 1);
+                PlayerPrefs.Save();
+
+                Debug.Log($"[ProgressManager] Ghi loại AI: {ai.aiID}");
+            }
+
+            previousStates[ai.aiID] = current;
+        }
     }
 
-    public bool IsAIEliminated(int index)
+    public bool IsAIEliminated(string aiID)
     {
-        return eliminatedAIIndices.Contains(index);
-    }
-
-    public bool IsAIEliminated(string name)
-    {
-        int index = aiNames.IndexOf(name);
-        return index >= 0 && IsAIEliminated(index);
+        return PlayerPrefs.GetInt($"AI_Eliminated_{aiID}", 0) == 1;
     }
 }

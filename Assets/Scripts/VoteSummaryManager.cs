@@ -6,14 +6,14 @@ using System.Linq;
 public class VoteSummaryManager : MonoBehaviour
 {
     public TMP_Text countdownText;
-    public TMP_Text labelText; // Proceeding in
+    public TMP_Text labelText;
     public float countdownSeconds = 5f;
 
     [Header("Canvas chuyển đổi")]
-    public GameObject currentCanvas;   // canvas hiện tại (sẽ bị ẩn)
-    public GameObject kickOutCanvas;   // canvas mới (Canvas kick-out)
+    public GameObject currentCanvas;
+    public GameObject kickOutCanvas;
 
-    [Header("Các AI trong game (9 AI)")]
+    [Header("Các AI trong game (9 AI - index 1–9)")]
     public GameObject[] aiCharacters = new GameObject[9];
 
     [Header("Human player object")]
@@ -50,16 +50,16 @@ public class VoteSummaryManager : MonoBehaviour
         else
         {
             var sorted = results.OrderByDescending(kv => kv.Value).ToList();
-            string topName = sorted[0].Key;
-            int topVote = sorted[0].Value;
+            string name = sorted[0].Key;
+            int voteCount = sorted[0].Value;
 
-            if (sorted.Count > 1 && sorted[1].Value == topVote)
+            if (sorted.Count > 1 && sorted[1].Value == voteCount)
             {
                 Debug.Log("🟡 Hòa phiếu, không ai bị loại.");
                 PlayerPrefs.SetString("EjectedResult", "Tie");
                 PlayerPrefs.SetInt("VotedOutIndex", -1);
             }
-            else if (topName == "SKIP")
+            else if (name == "SKIP")
             {
                 Debug.Log("😂 Mọi người skip vote.");
                 PlayerPrefs.SetString("EjectedResult", "Skip");
@@ -67,59 +67,52 @@ public class VoteSummaryManager : MonoBehaviour
             }
             else
             {
-                Debug.Log($"❌ {topName} bị loại với {topVote} vote!");
-                PlayerPrefs.SetString("EjectedResult", topName);
+                // So sánh đúng tên người chơi (Human)
+                string playerName = PlayerPrefs.GetString("PlayerName", "Human");
+                int votedOutIndex = -1;
 
-                string humanName = PlayerData.Instance != null ? PlayerData.Instance.playerName : "You";
-
-                if (topName == humanName)
+                for (int i = 0; i <= 9; i++)
                 {
-                    Debug.Log($"❌ Human ({humanName}) bị loại với {topVote} vote!");
-
-                    // Ẩn Human nếu object tồn tại
-                    if (humanPlayer != null)
+                    string savedName = PlayerPrefs.GetString($"Shuffle_Name_{i}", $"Unknown {i}");
+                    if (savedName == name)
                     {
-                        humanPlayer.SetActive(false);
-                        Debug.Log("🚫 Human player đã bị ẩn.");
+                        votedOutIndex = i;
+                        break;
                     }
+                }
 
-                    // Human sẽ dùng index 10
-                    PlayerPrefs.SetInt("VotedOutIndex", 10);
+                if (votedOutIndex == -1)
+                {
+                    Debug.LogError($"❌ Không tìm thấy index ứng với tên {name}!");
+                    PlayerPrefs.SetInt("VotedOutIndex", -1);
                 }
                 else
                 {
-                    Debug.Log($"✅ Human ({humanName}) an toàn! Người bị loại là: {topName} ({topVote} vote)");
+                    PlayerPrefs.SetInt("VotedOutIndex", votedOutIndex);
+                    PlayerPrefs.SetString("EjectedResult", name);
+                    Debug.Log($"❌ {name} bị loại với {voteCount} vote!");
 
-                    // Tìm AI index từ Shuffle_Name_0~8
-                    int foundIndex = -1;
-                    for (int i = 0; i < 9; i++)
+                    if (name == playerName)
                     {
-                        string savedName = PlayerPrefs.GetString($"Shuffle_Name_{i}", $"Unknown {i}");
-                        if (savedName == topName)
+                        // Human bị loại
+                        if (humanPlayer != null)
                         {
-                            foundIndex = i;
-                            break;
-                        }
-                    }
-
-                    if (foundIndex != -1)
-                    {
-                        PlayerPrefs.SetInt("VotedOutIndex", foundIndex);
-                        Debug.Log($"🔍 VotedOutIndex = {foundIndex} lưu thành công.");
-
-                        if (aiCharacters != null && foundIndex < aiCharacters.Length)
-                        {
-                            if (aiCharacters[foundIndex] != null)
-                            {
-                                aiCharacters[foundIndex].SetActive(false);
-                                Debug.Log($"🧍‍♂️ AI {foundIndex} đã bị ẩn.");
-                            }
+                            humanPlayer.SetActive(false);
+                            Debug.Log("🚫 Người chơi đã bị ẩn.");
                         }
                     }
                     else
                     {
-                        Debug.LogError($"❌ Không tìm thấy index AI cho {topName}!");    
-                        PlayerPrefs.SetInt("VotedOutIndex", -1);
+                        // AI bị loại
+                        int aiArrayIndex = votedOutIndex; // index thật sự đã được định vị từ Shuffle
+                        if (aiArrayIndex >= 0 && aiArrayIndex < aiCharacters.Length)
+                        {
+                            if (aiCharacters[aiArrayIndex] != null)
+                            {
+                                aiCharacters[aiArrayIndex].SetActive(false);
+                                Debug.Log($"🧍‍♂️ AI {aiArrayIndex} đã bị ẩn.");
+                            }
+                        }
                     }
                 }
             }
@@ -135,5 +128,4 @@ public class VoteSummaryManager : MonoBehaviour
 
         Debug.Log("✅ Chuyển sang Canvas kick-out.");
     }
-
 }

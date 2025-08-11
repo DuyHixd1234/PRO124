@@ -82,9 +82,12 @@ public class AutoVoteManager : MonoBehaviour
                 continue;
             }
 
-            bool isDead = deadIcons.Length > i && deadIcons[i] != null && deadIcons[i].activeInHierarchy;
+            bool isDead = false;
+            if (i < deadIcons.Length && deadIcons[i] != null)
+                isDead = deadIcons[i].activeInHierarchy;
 
-            if (!isDead)
+            // Với Skip (index 10) thì luôn hợp lệ
+            if (!isDead || i == 10)
             {
                 validButtons.Add(voteButtons[i]);
                 Debug.Log($"[AutoVote] Valid target: {voteButtons[i].name}");
@@ -113,12 +116,27 @@ public class AutoVoteManager : MonoBehaviour
 
         foreach (var kvp in voteData)
         {
-            Debug.Log($"[AutoVote] AI vote: {kvp.Key.name} nhận {kvp.Value} vote");
-            VotingDataManager.Instance.AddVote(kvp.Key.name, kvp.Value);
+            Button btn = kvp.Key;
+            int count = kvp.Value;
+
+            if (!buttonToIndexMap.ContainsKey(btn))
+            {
+                Debug.LogWarning($"[AutoVote] Không tìm thấy index của button {btn.name}");
+                continue;
+            }
+
+            int index = buttonToIndexMap[btn];
+            string trueName = index == 10
+                ? "Skip"
+                : PlayerPrefs.GetString($"Shuffle_Name_{index}", $"Unknown_{index}");
+
+            Debug.Log($"[AutoVote] AI vote: {trueName} nhận {count} vote");
+            VotingDataManager.Instance.AddVote(trueName, count);
         }
 
         votingDone = true;
     }
+
 
     public void RegisterHumanYesVote(Button votedButton)
     {
@@ -134,9 +152,18 @@ public class AutoVoteManager : MonoBehaviour
             voteData[votedButton] = 0;
 
         voteData[votedButton]++;
-        VotingDataManager.Instance.AddVote(votedButton.name, 1);
 
-        Debug.Log($"[HumanVote] Human voted YES cho: {votedButton.name}, tổng cộng = {voteData[votedButton]}");
+        if (!buttonToIndexMap.ContainsKey(votedButton))
+        {
+            Debug.LogError("[HumanVote] Không tìm thấy index của button được chọn!");
+            return;
+        }
+
+        int index = buttonToIndexMap[votedButton];
+        string trueName = PlayerPrefs.GetString($"Shuffle_Name_{index}", $"Unknown_{index}");
+
+        VotingDataManager.Instance.AddVote(trueName, 1);
+        Debug.Log($"[HumanVote] Human voted YES cho: {trueName}, tổng cộng = {voteData[votedButton]}");
     }
 
     public void RegisterHumanItsHimVote(Button votedButton)
@@ -166,9 +193,18 @@ public class AutoVoteManager : MonoBehaviour
         voteData.Clear();
         voteData[votedButton] = voteCount;
         VotingDataManager.Instance.ClearVotes();
-        VotingDataManager.Instance.AddVote(votedButton.name, voteCount);
 
-        Debug.Log($"[HumanVote] Human voted IT'S HIM cho: {votedButton.name}, nhận {voteCount} vote");
+        if (!buttonToIndexMap.ContainsKey(votedButton))
+        {
+            Debug.LogError("[HumanVote] Không tìm thấy index của button được chọn!");
+            return;
+        }
+
+        int indexVoted = buttonToIndexMap[votedButton];
+        string trueName = PlayerPrefs.GetString($"Shuffle_Name_{indexVoted}", $"Unknown_{indexVoted}");
+
+        VotingDataManager.Instance.AddVote(trueName, voteCount);
+        Debug.Log($"[HumanVote] Human voted IT'S HIM cho: {trueName}, nhận {voteCount} vote");
     }
 
     public void ResetVoting()

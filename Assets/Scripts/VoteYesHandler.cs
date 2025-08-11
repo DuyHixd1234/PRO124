@@ -5,11 +5,10 @@ using TMPro;
 public class VoteYesHandler : MonoBehaviour
 {
     public Button yesButton;                     // Button YES trong panel
-    public TMP_Text nameText;                    // TMP chứa tên nhân vật này
+    public TMP_Text nameText;                    // TMP chứa tên nhân vật này (chỉ để hiển thị)
     public GameObject voteAllocatorTrigger;      // Kích hoạt tiến trình sau cùng
 
-    public int characterIndex;
-    public bool isPlayer;
+    public int characterIndex;                   // Human = 0, AI = 1–9
 
     private bool hasVoted = false;
 
@@ -24,17 +23,20 @@ public class VoteYesHandler : MonoBehaviour
         if (hasVoted) return;
         hasVoted = true;
 
-        string characterName = nameText.text;
-        VotingDataManager.Instance.AddVote(characterName, 1); // +1 vote
+        // Lấy tên đúng từ Shuffle_Name_{index}
+        string characterName = PlayerPrefs.GetString($"Shuffle_Name_{characterIndex}", $"Unknown_{characterIndex}");
 
-        VotingLockoutManager.LockAllButtonsExcept(this.gameObject);
-        VotingUIHelper.Instance?.ShowHumanIVoted();
+        // Gửi vote đúng tên
+        VotingDataManager.Instance.AddVote(characterName, 1);
 
-        // ✅ Luôn kích hoạt object, dù là Human hay AI
+        // Ghi nhận người bị vote
+        PlayerPrefs.SetInt("VotedOutIndex", characterIndex);
+
+        // Debug thông tin vote
+        Debug.Log($"✅ Trigger bật cho {characterName} (index {characterIndex})");
+
+        // Bật tiến trình tiếp theo nếu có
         if (voteAllocatorTrigger != null)
-        {
             voteAllocatorTrigger.SetActive(true);
-            Debug.Log($"✅ Trigger bật cho {characterName}");
-        }
     }
 }
