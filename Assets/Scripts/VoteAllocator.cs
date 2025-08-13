@@ -12,11 +12,7 @@ public class VoteAllocator : MonoBehaviour
 
     public GameObject skipButtonObject;               // Button SKIP
     public GameObject voteSummaryManager;             // Hiện sau khi xử lý xong
-    public TMP_Text skipVoteCountText;                // TMP hiển thị số vote SKIP
-
-    //string topVoted = "";
-    //int topVote = -1;
-    //bool tie = false;
+    public TMP_Text skipVoteCountText;                // TMP hiển thị số vote SKIP (không dùng nữa)
 
     void OnEnable()
     {
@@ -68,30 +64,8 @@ public class VoteAllocator : MonoBehaviour
             }
         }
 
-        // Delay trước khi hiển thị số vote
-        yield return new WaitForSeconds(1.5f);
-
-        // Hiển thị vote count
-        foreach (var vb in votingButtons)
-        {
-            string name = vb.nameText.text;
-            int count = voteResults.ContainsKey(name) ? voteResults[name] : 0;
-
-            if (vb.voteCountTMP != null)
-            {
-                vb.voteCountTMP.text = count.ToString();
-                vb.voteCountTMP.gameObject.SetActive(true);
-            }
-        }
-
-        if (skipVoteCountText != null && voteResults.ContainsKey("SKIP"))
-        {
-            skipVoteCountText.text = voteResults["SKIP"].ToString();
-            skipVoteCountText.gameObject.SetActive(true);
-        }
-
-        // Delay thêm trước khi bật Summary
-        yield return new WaitForSeconds(3f);
+        // Delay trước khi bật Summary
+        yield return new WaitForSeconds(4.5f); // gộp 1.5f + 3f
 
         if (voteSummaryManager != null)
             voteSummaryManager.SetActive(true);

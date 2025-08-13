@@ -1,13 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [Header("Cai dat")]
+    [Header("Cài đặt")]
     public float moveSpeed = 2f;
-    public string role; // "Crewmate" hoac "Impostor"
+    public string role; // "Crewmate" hoặc "Impostor"
     public GameObject crewmateUI;
     public GameObject impostorUI;
     public GameObject panelDeadReported;
@@ -21,11 +21,17 @@ public class Player : MonoBehaviour
     private bool isDead = false;
     private Vector2 movement;
 
-    [Header("Xac")]
+    [Header("Xác")]
     public Sprite spriteXacDung;
     public Sprite spriteXacNam;
-    public GameObject bodyHolder; // GameObj rieng de chua body
+    public GameObject bodyHolder; // GameObj riêng để chứa body
     public SpriteRenderer bodyRenderer;
+
+    [Header("9 Canvas theo dõi")]
+    public GameObject[] canvasesToWatch;
+
+    [Header("Joystick (Tùy chọn)")]
+    public JoystickController joystick; // Kéo thả JoystickController vào đây trong Inspector
 
     void Start()
     {
@@ -38,15 +44,34 @@ public class Player : MonoBehaviour
         crewmateUI.SetActive(role == "Crewmate");
         impostorUI.SetActive(role == "Impostor");
 
-        bodyHolder.SetActive(false); // An body luc dau
+        bodyHolder.SetActive(false); // Ẩn body lúc đầu
     }
 
     void Update()
     {
         if (isDead) return;
 
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        // Kiểm tra nếu bất kỳ canvas nào bật → spawn về startWaypoint
+        foreach (var canvasObj in canvasesToWatch)
+        {
+            if (canvasObj != null && canvasObj.activeSelf)
+            {
+                TeleportToStart();
+                break;
+            }
+        }
 
+        // Lấy input từ Joystick nếu có, nếu không dùng bàn phím
+        if (joystick != null)
+        {
+            movement = joystick.Direction; // Vector2 (-1..1)
+        }
+        else
+        {
+            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+
+        // Animation
         anim.SetBool("isRunning", movement != Vector2.zero);
         if (movement.x < -0.1f) sr.flipX = true;
         else if (movement.x > 0.1f) sr.flipX = false;
@@ -58,6 +83,14 @@ public class Player : MonoBehaviour
         {
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
+    }
+
+    private void TeleportToStart()
+    {
+        transform.position = startWaypoint.position;
+        rb.linearVelocity = Vector2.zero;
+        movement = Vector2.zero;
+        anim.SetBool("isRunning", false);
     }
 
     public void OnDeadBodyReported()
@@ -89,12 +122,12 @@ public class Player : MonoBehaviour
     {
         isDead = true;
 
-        // Tat sprite va animation chinh
+        // Tắt sprite và animation chính
         anim.enabled = false;
         sr.enabled = false;
         rb.linearVelocity = Vector2.zero;
 
-        // Show xac dung
+        // Show xác đứng
         bodyHolder.SetActive(true);
         bodyRenderer.sortingLayerName = "Character";
         bodyRenderer.sortingOrder = 1;
@@ -102,13 +135,13 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        // Hien xac nam
+        // Hiện xác nằm
         bodyRenderer.sprite = spriteXacNam;
         bodyRenderer.sortingOrder = 5;
 
         yield return new WaitForSeconds(1f);
 
-        // Thua cuoc
+        // Thua cuộc
         Object.FindAnyObjectByType<BlackPanelFade>()?.StartFadeOut();
         yield return new WaitForSeconds(1.5f);
 

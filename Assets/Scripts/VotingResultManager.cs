@@ -38,6 +38,9 @@ public class VotingResultManager : MonoBehaviour
     public GameObject blackOverlay;   // Gán object đen (đang ẩn)
     public Canvas parentCanvas;       // Gán Canvas cha của panel này
 
+    [Header("Objects in Scene to Destroy When Ejected")]
+    public GameObject[] indexToGameObject; // 10 object tương ứng với index 0–9
+
     void Start()
     {
         string result = PlayerPrefs.GetString("EjectedResult", "None");
@@ -91,6 +94,7 @@ public class VotingResultManager : MonoBehaviour
                 Debug.LogWarning($"⚠️ Không tìm thấy sprite AI cho index {ejectedIndex}");
         }
 
+        // Gán sprite
         if (selectedSprite != null)
         {
             ejectImage.sprite = selectedSprite;
@@ -98,6 +102,20 @@ public class VotingResultManager : MonoBehaviour
         else
         {
             ejectImage.enabled = false;
+        }
+
+        // 🔹 Destroy GameObject tương ứng trong mảng mới
+        if (indexToGameObject != null && ejectedIndex < indexToGameObject.Length)
+        {
+            if (indexToGameObject[ejectedIndex] != null)
+            {
+                Destroy(indexToGameObject[ejectedIndex]);
+                indexToGameObject[ejectedIndex] = null; // tránh destroy lần 2
+            }
+            else
+            {
+                Debug.LogWarning($"⚠️ GameObject index {ejectedIndex} không tồn tại hoặc đã bị destroy.");
+            }
         }
 
         string finalText = $"{nameEjected} was{(isImpostor ? "" : " not")} An Impostor.";

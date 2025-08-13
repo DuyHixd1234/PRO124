@@ -84,7 +84,7 @@ public class Shuffle : MonoBehaviour
             allSprites[i + 1] = aiSprites[i];
         }
 
-        bool isPlayerImpostor = Random.value < 0.5f;
+        bool isPlayerImpostor = Random.value < 0.3f;
         int imp1, imp2;
 
         if (isPlayerImpostor)

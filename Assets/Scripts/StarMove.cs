@@ -1,37 +1,48 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
+[DisallowMultipleComponent]
 public class StarMove : MonoBehaviour
 {
-    [Header("Tốc độ di chuyển (sẽ được random từ spawner)")]
-    public float moveSpeed = 30f;
+    // cấu hình "cứng" trong code (không expose ra Inspector)
+    private const float MIN_SPEED = 10f;
+    private const float MAX_SPEED = 80f;
+    private const float OUT_OF_SCREEN_X = 5000f;
+    private const float SPEED_MULTIPLIER = 2f;
 
-    [Header("Hướng di chuyển (phải)")]
-    public Vector2 direction = Vector2.right;
+    // hướng cố định (giữ nguyên)
+    private static readonly Vector2 DIRECTION = Vector2.right;
 
-    [Header("Giá trị X vượt quá thì sẽ bị destroy")]
-    public float outOfScreenX = 1200f;
-
+    // cache
     private RectTransform rectTransform;
+    private float moveSpeed;
 
-    void Start()
+    void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         if (rectTransform == null)
         {
-            Debug.LogError("❌ RectTransform không tồn tại!");
+            Debug.LogError("[StarMove] RectTransform not found on " + gameObject.name);
+            enabled = false;
+            return;
         }
+
+        // random tốc độ 1 lần duy nhất cho mỗi object
+        moveSpeed = Random.Range(MIN_SPEED, MAX_SPEED);
     }
 
     void Update()
     {
+        // safety
         if (rectTransform == null) return;
 
-        // Di chuyển sang phải, gấp đôi tốc độ
-        rectTransform.anchoredPosition += direction * moveSpeed * 2f * Time.deltaTime;
+        // di chuyển (tính toán bằng local var để giảm truy cập thành phần)
+        float delta = moveSpeed * SPEED_MULTIPLIER * Time.deltaTime;
+        Vector2 pos = rectTransform.anchoredPosition;
+        pos += DIRECTION * delta;
+        rectTransform.anchoredPosition = pos;
 
-        // Nếu vượt ra ngoài Canvas bên phải thì huỷ
-        if (rectTransform.anchoredPosition.x > outOfScreenX)
+        // kiểm tra điểm kết thúc
+        if (pos.x > OUT_OF_SCREEN_X)
         {
             Destroy(gameObject);
         }

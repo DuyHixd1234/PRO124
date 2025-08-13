@@ -37,7 +37,8 @@ public class VotingButton : MonoBehaviour
 
         VotingPanelManager.Instance?.Register(this);
 
-        if (statusCheckObject != null && !statusCheckObject.activeSelf)
+        // ✅ Nâng cấp: Nếu statusCheckObject null/missing hoặc inactive → Dead
+        if (statusCheckObject == null || !statusCheckObject.activeSelf)
         {
             SetDeadState();
         }
@@ -61,6 +62,18 @@ public class VotingButton : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // ✅ Theo dõi real-time: Nếu object bị destroy/mất hoặc inactive → chuyển sang Dead
+        if (!isDead)
+        {
+            if (statusCheckObject == null || !statusCheckObject.activeSelf)
+            {
+                SetDeadState();
+            }
+        }
+    }
+
     void SetDeadState()
     {
         isDead = true;
@@ -73,6 +86,8 @@ public class VotingButton : MonoBehaviour
         imageXRed.gameObject.SetActive(true);
         imageIVoted.gameObject.SetActive(false);
         votePanel.SetActive(false);
+
+        Debug.Log($"[VotingButton] {characterName} (index {characterIndex}) đã bị loại hoặc mất object.");
     }
 
     void SetAliveState()
@@ -160,8 +175,8 @@ public class VotingButton : MonoBehaviour
     {
         if (voteCountTMP == null || nameText == null) return;
 
-        string displayName = nameText.text;             // Tên hiển thị
-        string keyName = characterName;                 // Tên làm key trong voteCounts
+        string displayName = nameText.text;
+        string keyName = characterName;
 
         int targetVotes = VotingDataManager.Instance.voteCounts.ContainsKey(keyName)
             ? VotingDataManager.Instance.voteCounts[keyName]
@@ -174,8 +189,6 @@ public class VotingButton : MonoBehaviour
         StartCoroutine(AnimateVoteCount(targetVotes));
     }
 
-
-
     IEnumerator AnimateVoteCount(int target)
     {
         int current = 0;
@@ -185,7 +198,6 @@ public class VotingButton : MonoBehaviour
         {
             voteCountTMP.text = current.ToString();
 
-            // Giật nhẹ text mỗi lần tăng
             voteCountTMP.transform.localScale = Vector3.one * 1.2f;
             yield return new WaitForSeconds(0.05f);
             voteCountTMP.transform.localScale = Vector3.one;

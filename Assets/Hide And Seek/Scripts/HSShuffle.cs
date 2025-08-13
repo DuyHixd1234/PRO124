@@ -77,10 +77,21 @@ public class HSShuffle : MonoBehaviour
             allSprites[i + 1] = aiSprites[i];
         }
 
-        // Random impostor index từ 0–10 (để 0 để Human có thể là impostor), sau này sửa lại thành 0-10
-        impostorIndex = Random.Range(0, 10);
+        // Xác suất: Player 25%, AI 75% chia đều
+        float roll = Random.value; // random 0.0 → 1.0
+        if (roll < 0.25f)
+        {
+            impostorIndex = 0; // Player làm impostor
+        }
+        else
+        {
+            // Chọn 1 AI trong 1–9
+            impostorIndex = Random.Range(1, 10);
+        }
+
         isImpostor[impostorIndex] = true;
     }
+
 
     void SaveShuffleData()
     {

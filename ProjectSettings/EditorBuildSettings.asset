@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 7ab78ebc822dbe343944649762907b40
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 73ec00fb9c49760429a69be99828790f
   - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: d4df14ee43d390142a8184709dd278a6
@@ -17,15 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: e7fbd2f9721bcb4468339d511659e9c3
-  - enabled: 0
-    path: Assets/Scenes/Lose.unity
-    guid: 53a9bd4515f1a5b4da746c11e2f5cd85
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 7ab78ebc822dbe343944649762907b40
-  - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: 73ec00fb9c49760429a69be99828790f
   - enabled: 1
     path: Assets/Scenes/VoteResult.unity
     guid: b7cbeed6c113a3f49848ce17776cc81a
@@ -41,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HSLose.unity
     guid: bfa8d8254ccbff64786b3d7881b72049
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 71b51915e0f0b474187c29c6142ddd80
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

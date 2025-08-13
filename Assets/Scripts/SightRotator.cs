@@ -22,6 +22,15 @@ public class SightRotator : MonoBehaviour
 
     void HandleMouseOverride()
     {
+        // Nếu joystick trái đang điều khiển nhân vật và joystick phải KHÔNG có input
+        // => Không cho phép điều khiển bằng chuột/touch để tránh giật khi bấm Kill
+        if (leftJoystick != null && leftJoystick.Direction.sqrMagnitude > 0.01f &&
+            (rightJoystick == null || rightJoystick.Direction.sqrMagnitude <= 0.01f))
+        {
+            isRightClickHeld = false;
+            return;
+        }
+
         if (Input.GetMouseButton(1))
         {
             isRightClickHeld = true;
@@ -53,17 +62,17 @@ public class SightRotator : MonoBehaviour
         }
         else if (rightJoystick != null && rightJoystick.Direction.sqrMagnitude > 0.01f)
         {
-            // Ưu tiên joystick phải để xoay
+            // Joystick phải ưu tiên hơn joystick trái
             targetDirection = rightJoystick.Direction.normalized;
             lastAimDir = targetDirection;
         }
         else if (leftJoystick != null && leftJoystick.Direction.sqrMagnitude > 0.01f)
         {
-            // Nếu không dùng joystick phải, xoay theo joystick di chuyển
+            // Chỉ khi joystick phải không hoạt động thì joystick trái mới xoay sight
             targetDirection = leftJoystick.Direction.normalized;
             lastAimDir = targetDirection;
         }
-        // Nếu không có input nào, giữ nguyên lastAimDir
+        // Nếu không có input nào, giữ nguyên hướng cũ
 
         // Xoay mượt
         float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;

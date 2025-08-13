@@ -25,12 +25,14 @@ public class PlayerImpostorController : MonoBehaviour
 
     void Start()
     {
-        SetKillInteractable(false); // ✅ Tắt nút Kill từ đầu
+        SafeSetKillInteractable(false); // ✅ Tắt nút Kill từ đầu
 
         cooldownTimer = killCooldown;
-        killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
+        if (killCooldownText != null)
+            killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
 
-        killButton.onClick.AddListener(HandleKill);
+        if (killButton != null)
+            killButton.onClick.AddListener(HandleKill);
     }
 
     void Update()
@@ -38,22 +40,31 @@ public class PlayerImpostorController : MonoBehaviour
         if (isCoolingDown)
         {
             cooldownTimer -= Time.deltaTime;
-            killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
+
+            if (killCooldownText != null)
+                killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
 
             if (cooldownTimer <= 0f)
             {
                 isCoolingDown = false;
-                killCooldownText.text = "";
+                if (killCooldownText != null)
+                    killCooldownText.text = "";
 
                 // Không bật killButton ở đây — chờ chạm tag Crewmate
             }
         }
     }
 
-    void SetKillInteractable(bool state)
+    /// <summary>
+    /// Hàm an toàn để set trạng thái Kill Button
+    /// </summary>
+    void SafeSetKillInteractable(bool state)
     {
-        killButton.interactable = state;
-        killButtonGroup.alpha = state ? 1f : 0.4f;
+        if (killButton != null)
+            killButton.interactable = state;
+
+        if (killButtonGroup != null)
+            killButtonGroup.alpha = state ? 1f : 0.4f;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -63,7 +74,7 @@ public class PlayerImpostorController : MonoBehaviour
             targetCrew = collision.GetComponent<AICrewmate>();
             if (targetCrew != null && targetCrew.gameObject.activeSelf)
             {
-                SetKillInteractable(true);
+                SafeSetKillInteractable(true);
             }
         }
     }
@@ -75,7 +86,7 @@ public class PlayerImpostorController : MonoBehaviour
             if (targetCrew != null && collision.gameObject == targetCrew.gameObject)
             {
                 targetCrew = null;
-                SetKillInteractable(false);
+                SafeSetKillInteractable(false);
             }
         }
     }
@@ -86,9 +97,11 @@ public class PlayerImpostorController : MonoBehaviour
 
         targetCrew.Kill();
 
-        SetKillInteractable(false);
+        SafeSetKillInteractable(false);
         isCoolingDown = true;
         cooldownTimer = killCooldown;
-        killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
+
+        if (killCooldownText != null)
+            killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
     }
 }

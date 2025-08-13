@@ -2,16 +2,13 @@
 using UnityEngine.UI;
 using System.Collections;
 
+[DisallowMultipleComponent]
 public class Effect : MonoBehaviour
 {
-    [Header("Kich hoat")]
-    public bool playOnStart = true;           // Tu dong chay khi Start
-    [Tooltip("Sau bao giay thi object duoc bat len (neu dang bi tat)")]
+    [Header("Kích hoạt")]
+    public bool playOnStart = true;
     public float delayBeforeActive = 0f;
-
-    [Tooltip("Sau bao giay tu luc object bat len thi moi chay hieu ung")]
     public float delayBeforeEffect = 0f;
-
 
     [Header("Fade Options")]
     public bool useFadeIn = false;
@@ -30,33 +27,68 @@ public class Effect : MonoBehaviour
     public bool slideOutToBottom = false;
 
     public float slideDuration = 1f;
-    private Vector3 originalPos;
 
     [Header("Zoom In Options")]
     public bool useZoomIn = false;
     public float zoomDuration = 0.5f;
     public Vector3 zoomStartScale = new Vector3(3, 3, 1);
 
+    [Header("Misc")]
+    public bool resetOnDisable = true; // nếu true: khi object bị disable sẽ reset về trạng thái gốc
+
+    // Internal
     private CanvasGroup canvasGroup;
     private RectTransform rect;
-    private Vector3 slideStartPos;
+    private Vector2 initialAnchoredPos;
+    private Vector3 initialScale;
+    private float initialAlpha;
+    private Vector2 slideStartPos;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        originalPos = rect.anchoredPosition;
+
+        // Lưu trạng thái "gốc" chỉ 1 lần ở Awake
+        initialAnchoredPos = rect.anchoredPosition;
+        initialScale = transform.localScale;
+        initialAlpha = canvasGroup.alpha;
     }
 
-    void Start()
+    void OnEnable()
     {
+        // Reset về trạng thái gốc mỗi lần bật (để chạy hiệu ứng đúng vị trí ban đầu)
+        StopAllCoroutines();
+        rect.anchoredPosition = initialAnchoredPos;
+        transform.localScale = initialScale;
+        canvasGroup.alpha = initialAlpha;
+
         if (playOnStart)
             StartCoroutine(PlayEffect());
     }
 
+    void OnDisable()
+    {
+        // Khi bị disable, đảm bảo reset lại (để lần sau bật lên đúng vị trí)
+        if (resetOnDisable)
+        {
+            // Không StartCoroutine ở đây vì object đang bị tắt, chỉ cần set giá trị nội bộ
+            rect.anchoredPosition = initialAnchoredPos;
+            transform.localScale = initialScale;
+            canvasGroup.alpha = initialAlpha;
+            StopAllCoroutines();
+        }
+    }
+
     public void Play()
     {
+        StopAllCoroutines();
+        // Reset luôn trước khi chơi để tránh trạng thái còn dư từ lần trước
+        rect.anchoredPosition = initialAnchoredPos;
+        transform.localScale = initialScale;
+        canvasGroup.alpha = initialAlpha;
+
         StartCoroutine(PlayEffect());
     }
 
@@ -64,14 +96,22 @@ public class Effect : MonoBehaviour
     {
         if (delayBeforeActive > 0f)
         {
-            gameObject.SetActive(false);
-            yield return new WaitForSeconds(delayBeforeActive);
-            gameObject.SetActive(true);
+            // Nếu object đang inactive, bật lại sau delay
+            if (!gameObject.activeSelf)
+            {
+                gameObject.SetActive(true);
+                yield return new WaitForSeconds(delayBeforeActive);
+            }
+            else
+            {
+                yield return new WaitForSeconds(delayBeforeActive);
+            }
         }
 
         if (delayBeforeEffect > 0f)
             yield return new WaitForSeconds(delayBeforeEffect);
 
+        // Thực hiện lần lượt (bạn có thể thay đổi thứ tự hoặc chạy song song nếu muốn)
         if (useFadeIn) yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
         if (useFadeOut) yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
 
@@ -103,51 +143,61 @@ public class Effect : MonoBehaviour
 
     IEnumerator SlideFromDirection(Vector2 dir, float duration)
     {
-        // Slide In: KHÔNG tắt gameObject
-        slideStartPos = originalPos + new Vector3(dir.x, dir.y, 0) * Screen.width;
+        // Tạo offset lớn dựa trên màn hình + kích thước rect (dùng đúng trục)
+        Vector2 offset = new Vector2(
+            dir.x * (Screen.width + rect.rect.width),
+            dir.y * (Screen.height + rect.rect.height)
+        );
+
+        slideStartPos = initialAnchoredPos + offset;
         rect.anchoredPosition = slideStartPos;
 
         float timer = 0f;
         while (timer < duration)
         {
-            rect.anchoredPosition = Vector3.Lerp(slideStartPos, originalPos, timer / duration);
+            rect.anchoredPosition = Vector2.Lerp(slideStartPos, initialAnchoredPos, timer / duration);
             timer += Time.deltaTime;
             yield return null;
         }
-        rect.anchoredPosition = originalPos;
+        rect.anchoredPosition = initialAnchoredPos;
     }
 
     IEnumerator SlideToDirection(Vector2 dir, float duration)
     {
-        // Slide Out: TẮT object SAU KHI hiệu ứng kết thúc
-        Vector3 targetPos = originalPos + new Vector3(dir.x, dir.y, 0) * Screen.width;
+        Vector2 offset = new Vector2(
+            dir.x * (Screen.width + rect.rect.width),
+            dir.y * (Screen.height + rect.rect.height)
+        );
 
+        Vector2 targetPos = initialAnchoredPos + offset;
         float timer = 0f;
+        Vector2 startPos = rect.anchoredPosition;
+
         while (timer < duration)
         {
-            rect.anchoredPosition = Vector3.Lerp(originalPos, targetPos, timer / duration);
+            rect.anchoredPosition = Vector2.Lerp(startPos, targetPos, timer / duration);
             timer += Time.deltaTime;
             yield return null;
         }
         rect.anchoredPosition = targetPos;
 
-        // Sau khi hoàn tất mới tắt object
+        // Tắt object sau khi slide out xong.
+        // OnDisable sẽ reset anchoredPosition/scale/alpha về giá trị gốc
         gameObject.SetActive(false);
     }
 
-
     IEnumerator ZoomInEffect()
     {
-        Vector3 originalScale = transform.localScale;
-        transform.localScale = zoomStartScale;
+        Vector3 startScale = zoomStartScale;
+        Vector3 endScale = initialScale;
 
         float timer = 0f;
         while (timer < zoomDuration)
         {
-            transform.localScale = Vector3.Lerp(zoomStartScale, originalScale, timer / zoomDuration);
+            transform.localScale = Vector3.Lerp(startScale, endScale, timer / zoomDuration);
             timer += Time.deltaTime;
             yield return null;
         }
-        transform.localScale = originalScale;
+        transform.localScale = endScale;
     }
 }
