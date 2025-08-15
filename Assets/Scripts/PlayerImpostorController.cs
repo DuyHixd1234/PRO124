@@ -1,75 +1,37 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerImpostorController : MonoBehaviour
 {
     [Header("UI Elements")]
     public Button killButton;
-    public TMP_Text killCooldownText;
 
     [Header("Canvas Group")]
     public CanvasGroup killButtonGroup;
-
-    [Header("Cooldown")]
-    public float killCooldown = 20f;
-    private float cooldownTimer;
-    private bool isCoolingDown = true; // ✅ Bắt đầu cooldown ngay khi scene load
 
     [Header("Detection")]
     public Transform detectZone;
     private AICrewmate targetCrew;
 
-    [Header("Canvas")]
-    public GameObject gameplayCanvas;
+    [Header("Kill Circle Object")]
+    public GameObject killCircle;
+    public float killActiveTime = 0.3f;
 
     void Start()
     {
-        SafeSetKillInteractable(false); // ✅ Tắt nút Kill từ đầu
-
-        cooldownTimer = killCooldown;
-        if (killCooldownText != null)
-            killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
+        SafeSetKillInteractable(false);
 
         if (killButton != null)
             killButton.onClick.AddListener(HandleKill);
-    }
 
-    void Update()
-    {
-        if (isCoolingDown)
-        {
-            cooldownTimer -= Time.deltaTime;
-
-            if (killCooldownText != null)
-                killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
-
-            if (cooldownTimer <= 0f)
-            {
-                isCoolingDown = false;
-                if (killCooldownText != null)
-                    killCooldownText.text = "";
-
-                // Không bật killButton ở đây — chờ chạm tag Crewmate
-            }
-        }
-    }
-
-    /// <summary>
-    /// Hàm an toàn để set trạng thái Kill Button
-    /// </summary>
-    void SafeSetKillInteractable(bool state)
-    {
-        if (killButton != null)
-            killButton.interactable = state;
-
-        if (killButtonGroup != null)
-            killButtonGroup.alpha = state ? 1f : 0.4f;
+        if (killCircle != null)
+            killCircle.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Crewmate") && !isCoolingDown)
+        if (collision.CompareTag("Crewmate"))
         {
             targetCrew = collision.GetComponent<AICrewmate>();
             if (targetCrew != null && targetCrew.gameObject.activeSelf)
@@ -81,13 +43,10 @@ public class PlayerImpostorController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Crewmate"))
+        if (collision.CompareTag("Crewmate") && targetCrew != null && collision.gameObject == targetCrew.gameObject)
         {
-            if (targetCrew != null && collision.gameObject == targetCrew.gameObject)
-            {
-                targetCrew = null;
-                SafeSetKillInteractable(false);
-            }
+            targetCrew = null;
+            SafeSetKillInteractable(false);
         }
     }
 
@@ -95,13 +54,23 @@ public class PlayerImpostorController : MonoBehaviour
     {
         if (targetCrew == null) return;
 
-        targetCrew.Kill();
+        if (killCircle != null)
+            StartCoroutine(ActivateKillCircle());
+    }
 
-        SafeSetKillInteractable(false);
-        isCoolingDown = true;
-        cooldownTimer = killCooldown;
+    private System.Collections.IEnumerator ActivateKillCircle()
+    {
+        killCircle.SetActive(true);
+        yield return new WaitForSeconds(killActiveTime);
+        killCircle.SetActive(false);
+    }
 
-        if (killCooldownText != null)
-            killCooldownText.text = Mathf.CeilToInt(cooldownTimer).ToString();
+    void SafeSetKillInteractable(bool state)
+    {
+        if (killButton != null)
+            killButton.interactable = state;
+
+        if (killButtonGroup != null)
+            killButtonGroup.alpha = state ? 1f : 0.4f;
     }
 }

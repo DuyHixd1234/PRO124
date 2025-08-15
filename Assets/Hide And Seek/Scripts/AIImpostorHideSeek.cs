@@ -34,19 +34,23 @@ public class AIImpostorHideSeek : MonoBehaviour
         {
             currentWaypoint = startWaypoint;
             transform.position = currentWaypoint.transform.position;
-            moveRoutine = StartCoroutine(MoveToNextWaypoint());
         }
 
         // Bắt đầu trận → đứng yên
         currentSpeed = 0f;
+        animator.SetBool("isRunning", false); // 🔹 Đảm bảo đứng yên animation
+
         StartCoroutine(StartDelayRoutine());
     }
 
     private IEnumerator StartDelayRoutine()
     {
         yield return new WaitForSeconds(waitTimeAtStart);
+
+        // Sau 10 giây → bắt đầu chạy
         currentSpeed = normalSeekSpeed;
         hasStartedMoving = true;
+        moveRoutine = StartCoroutine(MoveToNextWaypoint()); // 🔹 Chỉ start di chuyển sau cooldown
     }
 
     private void Update()
@@ -75,7 +79,7 @@ public class AIImpostorHideSeek : MonoBehaviour
             if (next == null) yield break;
 
             Vector3 target = next.position;
-            animator.SetBool("isRunning", true);
+            animator.SetBool("isRunning", true); // 🔹 Chỉ bật khi bắt đầu move
             FlipDirection(target - transform.position);
 
             while (Vector3.Distance(transform.position, target) > 0.05f)
@@ -87,7 +91,7 @@ public class AIImpostorHideSeek : MonoBehaviour
                 yield return null;
             }
 
-            animator.SetBool("isRunning", false);
+            // Vì Impostor luôn chạy → không cần set isRunning = false ở đây
             currentWaypoint = next.GetComponent<Waypoint>();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ImpostorKill : MonoBehaviour
 {
@@ -7,15 +8,35 @@ public class ImpostorKill : MonoBehaviour
     public float killCooldown = 1f; // thời gian chờ sau khi kill
     private bool canKill = true;
 
+    // Danh sách crewmate đang trong vùng trigger
+    private List<GameObject> crewmatesInRange = new List<GameObject>();
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Nếu va chạm với Crewmate và có thể kill
-        if (canKill && collision.CompareTag("Crewmate"))
+        if (collision.CompareTag("Crewmate") && !crewmatesInRange.Contains(collision.gameObject))
         {
-            // Ẩn Crewmate thay vì Destroy
-            collision.gameObject.SetActive(false);
+            crewmatesInRange.Add(collision.gameObject);
+            TryKill();
+        }
+    }
 
-            // Bắt đầu cooldown
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Crewmate"))
+        {
+            crewmatesInRange.Remove(collision.gameObject);
+        }
+    }
+
+    private void TryKill()
+    {
+        if (!canKill || crewmatesInRange.Count == 0) return;
+
+        // Luôn kill 1 mục tiêu duy nhất
+        GameObject target = crewmatesInRange[0];
+        if (target != null && target.activeSelf)
+        {
+            target.SetActive(false);
             StartCoroutine(KillCooldownRoutine());
         }
     }
@@ -25,5 +46,11 @@ public class ImpostorKill : MonoBehaviour
         canKill = false;
         yield return new WaitForSeconds(killCooldown);
         canKill = true;
+
+        // Sau cooldown, nếu vẫn còn crewmate trong vùng → kill tiếp
+        if (crewmatesInRange.Count > 0)
+        {
+            TryKill();
+        }
     }
 }

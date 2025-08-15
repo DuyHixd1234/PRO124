@@ -31,12 +31,17 @@ public class TagButtonActivator : MonoBehaviour
 
         if (targetObject != null)
             targetObject.SetActive(false);
+
+        Debug.Log("[INIT] Script TagButtonActivator đã khởi tạo.");
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"[TRIGGER ENTER] Va chạm với: {other.name}, tag = {other.tag}");
+
         if (other.CompareTag(targetTag))
         {
+            Debug.Log("[TRIGGER ENTER] Đúng tag, bật nút!");
             if (targetButton != null)
                 targetButton.interactable = true;
         }
@@ -44,8 +49,11 @@ public class TagButtonActivator : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log($"[TRIGGER EXIT] Rời khỏi: {other.name}, tag = {other.tag}");
+
         if (other.CompareTag(targetTag))
         {
+            Debug.Log("[TRIGGER EXIT] Đúng tag, tắt nút!");
             if (targetButton != null)
                 targetButton.interactable = false;
         }
@@ -53,7 +61,13 @@ public class TagButtonActivator : MonoBehaviour
 
     void OnButtonClick()
     {
-        if (!canClick) return;
+        Debug.Log($"[BUTTON CLICK] Nút được bấm! canClick = {canClick}");
+
+        if (!canClick)
+        {
+            Debug.Log("[BUTTON CLICK] Nhưng đang cooldown, bỏ qua.");
+            return;
+        }
 
         StartCoroutine(ActivateObjectSequence());
     }
@@ -63,15 +77,23 @@ public class TagButtonActivator : MonoBehaviour
         canClick = false;
 
         if (targetObject != null)
+        {
             targetObject.SetActive(true);
+            Debug.Log($"[OBJECT] {targetObject.name} đã được bật!");
+        }
 
         yield return new WaitForSeconds(activeDuration);
 
         if (targetObject != null)
+        {
             targetObject.SetActive(false);
+            Debug.Log($"[OBJECT] {targetObject.name} đã được tắt!");
+        }
 
+        Debug.Log($"[COOLDOWN] Bắt đầu chờ {cooldownTime} giây...");
         yield return new WaitForSeconds(cooldownTime);
 
         canClick = true;
+        Debug.Log("[COOLDOWN] Hết thời gian chờ, có thể click lại.");
     }
 }

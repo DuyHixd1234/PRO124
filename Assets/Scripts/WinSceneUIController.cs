@@ -20,29 +20,18 @@ public class WinSceneUIController : MonoBehaviour
     public TMP_Text playerNameText;
     public TMP_Text aiNameText;
 
-    [Header("Sprites Alive/Ghost (10 slots each)")]
-    public Sprite[] aliveSprites = new Sprite[10];
-    public Sprite[] ghostSprites = new Sprite[10];
-
-    [Header("Ghost Transparency (0–1)")]
-    [Range(0f, 1f)] public float ghostAlpha = 0.17f;
+    [Header("All Possible Sprites (match Shuffle.cs names)")]
+    public Sprite redPlayerSprite;
+    public Sprite[] aiSprites = new Sprite[9]; // Index 0–8 tương ứng Shuffle index 1–9
 
     void Start()
     {
-        DumpAllPrefs();
         LoadWinData();
     }
 
     void LoadWinData()
     {
-        Debug.Log("[WinUI] === Dump all PlayerPrefs keys ===");
-        Debug.Log($"AliveImpostorCount={PlayerPrefs.GetInt("AliveImpostorCount", 0)}");
-        Debug.Log($"AliveCrewmateCount={PlayerPrefs.GetInt("AliveCrewmateCount", 0)}");
-        Debug.Log($"DeadImpostorCount={PlayerPrefs.GetInt("DeadImpostorCount", 0)}");
-        Debug.Log($"DeadCrewmateCount={PlayerPrefs.GetInt("DeadCrewmateCount", 0)}");
-
         bool playerIsImpostor = PlayerPrefs.GetInt("Shuffle_Role_0", 0) == 1;
-        Debug.Log($"[WinUI] PlayerIsImpostor={playerIsImpostor}");
 
         if (playerIsImpostor) ShowImpostorCanvas();
         else ShowCrewmateCanvas();
@@ -54,84 +43,36 @@ public class WinSceneUIController : MonoBehaviour
         SafeSetActive(crewmateCanvas, true);
         SafeSetActive(impostorCanvas, false);
 
-        int[] crewAlive = GetIndexArrayByCountKey("AliveCrewmateCount", "AliveCrewmateIndex_");
-        int[] crewDead = GetIndexArrayByCountKey("DeadCrewmateCount", "DeadCrewmateIndex_");
-
-        // Fallback CSV
-        if (crewAlive.Length == 0 && crewDead.Length == 0)
+        // Clear tất cả slot trước
+        for (int i = 0; i < crewmateImages.Length; i++)
         {
-            crewAlive = GetIndexArrayFromCsv("Alive_Crew");
-            crewDead = GetIndexArrayFromCsv("Dead_Crew");
-            if (crewAlive.Length > 0 || crewDead.Length > 0)
-                Debug.Log("[WinUI] Fallback CSV data.");
+            if (crewmateImages[i] != null)
+            {
+                crewmateImages[i].sprite = null;
+            }
         }
 
-        // Fallback Alive/Dead_Index
-        if (crewAlive.Length == 0 && crewDead.Length == 0)
+        // Điền Player (red) vào slot 0
+        crewmateImages[0].sprite = redPlayerSprite;
+
+        int filled = 1; // đã điền Player
+
+        // Lấy các AI crewmate từ Shuffle
+        for (int i = 1; i < 10; i++)
         {
-            List<int> aliveList = new List<int>();
-            List<int> deadList = new List<int>();
+            bool isImp = PlayerPrefs.GetInt($"Shuffle_Role_{i}", 0) == 1;
+            if (isImp) continue; // bỏ qua impostor
 
-            for (int i = 0; i < 10; i++)
+            string spriteName = PlayerPrefs.GetString($"Shuffle_Sprite_{i}", "");
+            Sprite foundSprite = FindSpriteByName(spriteName);
+            if (foundSprite != null && filled < crewmateImages.Length)
             {
-                string tag = PlayerPrefs.GetString($"Tag_Index_{i}", "");
-                if (tag == "Crewmate")
-                {
-                    int aliveVal = PlayerPrefs.GetInt($"Alive_Index_{i}", 0);
-                    int deadVal = PlayerPrefs.GetInt($"Dead_Index_{i}", 0);
-
-                    if (aliveVal == 1) aliveList.Add(i);
-                    else if (deadVal == 1) deadList.Add(i);
-                }
-            }
-            crewAlive = aliveList.ToArray();
-            crewDead = deadList.ToArray();
-            Debug.Log("[WinUI] Fallback Alive/Dead_Index data.");
-        }
-
-        Debug.Log($"[WinUI] Crew Alive={string.Join(",", crewAlive)} | Dead={string.Join(",", crewDead)}");
-
-        // Chỉ reset nếu có dữ liệu mới
-        if (crewAlive.Length > 0 || crewDead.Length > 0)
-        {
-            // Reset images
-            for (int i = 0; i < crewmateImages.Length; i++)
-            {
-                if (crewmateImages[i] != null)
-                {
-                    crewmateImages[i].sprite = null;
-                    SetImageAlpha(crewmateImages[i], 0f);
-                }
-            }
-
-            int filled = 0;
-
-            foreach (int idx in crewAlive)
-            {
-                if (filled >= crewmateImages.Length) break;
-                if (!SpriteIndexValid(idx)) continue;
-
-                crewmateImages[filled].sprite = aliveSprites[idx];
-                SetImageAlpha(crewmateImages[filled], 1f);
+                crewmateImages[filled].sprite = foundSprite;
                 filled++;
             }
-
-            foreach (int idx in crewDead)
-            {
-                if (filled >= crewmateImages.Length) break;
-                if (!SpriteIndexValid(idx)) continue;
-
-                crewmateImages[filled].sprite = ghostSprites[idx];
-                SetImageAlpha(crewmateImages[filled], ghostAlpha);
-                filled++;
-            }
-
-            Debug.Log($"[WinUI] Filled {filled}/{crewmateImages.Length} crew images.");
         }
-        else
-        {
-            Debug.Log("[WinUI] No crew data found, keeping existing images.");
-        }
+
+        Debug.Log($"[WinUI] Filled {filled}/8 crew images (including player).");
     }
 
     // ---------- IMPOSTOR CANVAS ----------
@@ -140,142 +81,40 @@ public class WinSceneUIController : MonoBehaviour
         SafeSetActive(crewmateCanvas, false);
         SafeSetActive(impostorCanvas, true);
 
-        string playerName = PlayerPrefs.GetString("Shuffle_Name_0", "Player");
-        bool playerDead = IsIndexDead(0);
-        SetPortrait(playerImage, 0, playerDead);
-        if (playerNameText) playerNameText.text = playerName;
+        // Player impostor
+        playerImage.sprite = redPlayerSprite;
+        if (playerNameText) playerNameText.text = PlayerPrefs.GetString("Shuffle_Name_0", "Player");
 
-        bool foundAI = false;
+        // Tìm 1 AI impostor
         for (int i = 1; i < 10; i++)
         {
             if (PlayerPrefs.GetInt($"Shuffle_Role_{i}", 0) == 1)
             {
-                string aiName = PlayerPrefs.GetString($"Shuffle_Name_{i}", $"AI{i}");
-                bool aiDead = IsIndexDead(i);
-                SetPortrait(aiImage, i, aiDead);
-                if (aiNameText) aiNameText.text = aiName;
-                foundAI = true;
+                string spriteName = PlayerPrefs.GetString($"Shuffle_Sprite_{i}", "");
+                Sprite foundSprite = FindSpriteByName(spriteName);
+                if (foundSprite != null) aiImage.sprite = foundSprite;
+
+                if (aiNameText) aiNameText.text = PlayerPrefs.GetString($"Shuffle_Name_{i}", $"AI{i}");
                 break;
             }
-        }
-
-        if (!foundAI)
-        {
-            if (aiImage) { aiImage.sprite = null; SetImageAlpha(aiImage, 0f); }
-            if (aiNameText) aiNameText.text = "";
-            Debug.Log("[WinUI] No AI impostor found.");
         }
     }
 
     // ---------- HELPERS ----------
-    void SetPortrait(Image img, int idx, bool isGhost)
+    Sprite FindSpriteByName(string spriteName)
     {
-        if (img == null) return;
-        if (!SpriteIndexValid(idx)) { SetImageAlpha(img, 0f); return; }
+        if (spriteName == redPlayerSprite.name) return redPlayerSprite;
 
-        img.sprite = isGhost ? ghostSprites[idx] : aliveSprites[idx];
-        SetImageAlpha(img, isGhost ? ghostAlpha : 1f);
-    }
-
-    bool IsIndexDead(int idx)
-    {
-        var deadCrew = new HashSet<int>(GetIndexArrayByCountKey("DeadCrewmateCount", "DeadCrewmateIndex_"));
-        var deadImp = new HashSet<int>(GetIndexArrayByCountKey("DeadImpostorCount", "DeadImpostorIndex_"));
-
-        if (deadCrew.Count == 0 && deadImp.Count == 0)
+        foreach (var s in aiSprites)
         {
-            foreach (var d in GetIndexArrayFromCsv("Dead_Crew")) deadCrew.Add(d);
-            foreach (var d in GetIndexArrayFromCsv("Dead_Imp")) deadImp.Add(d);
-
-            // Fallback Alive/Dead_Index
-            if (deadCrew.Count == 0 && deadImp.Count == 0)
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    int deadVal = PlayerPrefs.GetInt($"Dead_Index_{i}", 0);
-                    string tag = PlayerPrefs.GetString($"Tag_Index_{i}", "");
-                    if (deadVal == 1)
-                    {
-                        if (tag == "Crewmate") deadCrew.Add(i);
-                        if (tag == "Impostor") deadImp.Add(i);
-                    }
-                }
-            }
+            if (s != null && s.name == spriteName) return s;
         }
-
-        return deadCrew.Contains(idx) || deadImp.Contains(idx);
-    }
-
-    int[] GetIndexArrayByCountKey(string countKey, string indexKeyPrefix)
-    {
-        int count = PlayerPrefs.GetInt(countKey, 0);
-        List<int> result = new List<int>(count);
-        for (int i = 0; i < count; i++)
-        {
-            int val = PlayerPrefs.GetInt(indexKeyPrefix + i, -1);
-            Debug.Log($"[WinUI] Read {indexKeyPrefix}{i} = {val}");
-            if (val >= 0) result.Add(val);
-        }
-        return result.ToArray();
-    }
-
-    int[] GetIndexArrayFromCsv(string key)
-    {
-        string raw = PlayerPrefs.GetString(key, "");
-        if (string.IsNullOrEmpty(raw)) return new int[0];
-
-        string[] parts = raw.Split(',');
-        List<int> res = new List<int>(parts.Length);
-        foreach (var p in parts)
-        {
-            if (int.TryParse(p, out int v)) res.Add(v);
-        }
-        return res.ToArray();
-    }
-
-    void SetImageAlpha(Image img, float alpha)
-    {
-        if (img == null) return;
-        var c = img.color; c.a = alpha; img.color = c;
-    }
-
-    bool SpriteIndexValid(int idx)
-    {
-        bool ok = (idx >= 0 && idx < aliveSprites.Length && idx < ghostSprites.Length
-                   && aliveSprites[idx] != null && ghostSprites[idx] != null);
-        if (!ok) Debug.LogWarning($"[WinUI] Sprite index {idx} invalid or null.");
-        return ok;
+        Debug.LogWarning($"[WinUI] Sprite '{spriteName}' not found in assigned arrays.");
+        return null;
     }
 
     void SafeSetActive(GameObject go, bool on)
     {
         if (go != null) go.SetActive(on);
-    }
-
-    void DumpAllPrefs()
-    {
-        Debug.Log("------ [WinUI] Dump PlayerPrefs Data ------");
-        string[] keys = {
-            "AliveImpostorCount","DeadImpostorCount",
-            "AliveCrewmateCount","DeadCrewmateCount",
-            "Alive_Crew","Dead_Crew","Dead_Imp"
-        };
-        foreach (string k in keys)
-        {
-            if (PlayerPrefs.HasKey(k))
-                Debug.Log($"{k} = {PlayerPrefs.GetString(k, PlayerPrefs.GetInt(k, 0).ToString())}");
-            else
-                Debug.Log($"{k} = <no key>");
-        }
-
-        for (int i = 0; i < 10; i++)
-        {
-            Debug.Log($"AliveImp_{i} = {PlayerPrefs.GetInt($"AliveImpostorIndex_{i}", -1)}");
-            Debug.Log($"DeadImp_{i} = {PlayerPrefs.GetInt($"DeadImpostorIndex_{i}", -1)}");
-            Debug.Log($"AliveCrew_{i} = {PlayerPrefs.GetInt($"AliveCrewmateIndex_{i}", -1)}");
-            Debug.Log($"DeadCrew_{i} = {PlayerPrefs.GetInt($"DeadCrewmateIndex_{i}", -1)}");
-            Debug.Log($"Alive_Index_{i} = {PlayerPrefs.GetInt($"Alive_Index_{i}", -1)} | Dead_Index_{i} = {PlayerPrefs.GetInt($"Dead_Index_{i}", -1)} | Tag = {PlayerPrefs.GetString($"Tag_Index_{i}", "")}");
-        }
-        Debug.Log("------------------------------------------");
     }
 }

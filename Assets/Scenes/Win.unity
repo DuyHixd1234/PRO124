@@ -163,8 +163,8 @@ MonoBehaviour:
   aiImage: {fileID: 270103386}
   playerNameText: {fileID: 767897251}
   aiNameText: {fileID: 2028281126}
-  aliveSprites:
-  - {fileID: 6286595657586805340, guid: be80ea03534bf1c429efd632658899c2, type: 3}
+  redPlayerSprite: {fileID: 6286595657586805340, guid: be80ea03534bf1c429efd632658899c2, type: 3}
+  aiSprites:
   - {fileID: -5829722220832839305, guid: fe72f4575e8e09348a210a3bf8fe0eeb, type: 3}
   - {fileID: -8025992449720396209, guid: 5522df205c28cfb4bb7eba19ec48a2c9, type: 3}
   - {fileID: -4003223316803723154, guid: 3dff45f1458a84c47a9447997fcf75ec, type: 3}
@@ -174,18 +174,6 @@ MonoBehaviour:
   - {fileID: -7381184880430962403, guid: 2636354e0a2037e4ab075243b73c6311, type: 3}
   - {fileID: -8923911374754931897, guid: 4678f51b9d245024ab06b8c242b25924, type: 3}
   - {fileID: -6429493399158520243, guid: 79b6c30f944b54e41b5b2ebe6a26ba55, type: 3}
-  ghostSprites:
-  - {fileID: 2501029663171772716, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: -8811833826610698769, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: 406862476118555702, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: 2821950172166991701, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: -7868699049004172139, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: 4785220848768826800, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: -2351640228756688488, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: 2077610179741015909, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: 5232798104469177575, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  - {fileID: -8291411044015034115, guid: cc9e1311ae9699845abd1081f5496e7b, type: 3}
-  ghostAlpha: 0.17
 --- !u!4 &248344232
 Transform:
   m_ObjectHideFlags: 0

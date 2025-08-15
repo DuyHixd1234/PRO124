@@ -117,6 +117,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -309,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Yelo_0: 1214160923926959296
+      Yelo_1: -3649591875841547842
+      Yelo_2: 1052750749293316375
+      Yelo_3: -5365986281033872421
+      Yelo_4: -3934492479372934812
+      Yelo_5: 6197113115048718950
+      Yelo_6: -137782581143198091
+      Yelo_7: -7834942538726743011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

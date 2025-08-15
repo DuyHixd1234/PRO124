@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
@@ -11,6 +11,9 @@ public class TaskGroup : MonoBehaviour
     [Header("Fade Settings")]
     public CanvasGroup blackPanelCanvasGroup; // CanvasGroup panel den
     public float fadeDuration = 1f;
+
+    [Header("Role Check Settings")]
+    public GameObject roleObject; // Đối tượng cần check tag
 
     private int totalTasks;
     private int completedTasks = 0;
@@ -68,6 +71,22 @@ public class TaskGroup : MonoBehaviour
             }
         }
 
+        // Kiểm tra tag của roleObject nếu có
+        if (roleObject != null)
+        {
+            if (roleObject.CompareTag("Crewmate"))
+            {
+                SceneManager.LoadScene("Win");
+                yield break; // Dừng coroutine để tránh load thêm
+            }
+            else if (roleObject.CompareTag("Impostor"))
+            {
+                SceneManager.LoadScene("Lose");
+                yield break;
+            }
+        }
+
+        // Nếu không có roleObject hoặc không khớp tag, mặc định là Win
         SceneManager.LoadScene("Win");
     }
 }

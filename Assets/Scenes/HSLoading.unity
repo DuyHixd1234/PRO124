@@ -1605,7 +1605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &480975649
 Transform:
   m_ObjectHideFlags: 0
@@ -1649,12 +1649,12 @@ MonoBehaviour:
   - {fileID: 4618614955454591813, guid: 9db65365ea423a34fb53c25cf13d2deb, type: 3}
   aiNames:
   - Suspicious
-  - Anh La Bu Bu
+  - 12.Sep
   - Bananer
   - Phantom
   - Croth
   - "Nh\xE2n V\u1EADt Ch\xEDnh"
-  - Anh La Duy Hai
+  - Matcha Latte
   - C4HiHiHiHi
   - Sam Blue
   impostorPanel: {fileID: 738881145}
@@ -1986,7 +1986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &738881146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,13 +5717,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1834152328}
   - component: {fileID: 1834152327}
+  - component: {fileID: 1834152329}
   m_Layer: 0
   m_Name: no_shh-sharedassets2.assets-17_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1834152327
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5794,6 +5795,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 498546749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834152329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834152326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75b65fe57b862a44bd6ff7600e17c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 480975647}
+  delay: 0.9
 --- !u!1 &1845677444
 GameObject:
   m_ObjectHideFlags: 0

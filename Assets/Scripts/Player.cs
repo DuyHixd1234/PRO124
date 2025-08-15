@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer sr;
     private Rigidbody2D rb;
     private bool isDead = false;
-    private Vector2 movement;
+    [HideInInspector] public Vector2 movement;
 
     [Header("Xác")]
     public Sprite spriteXacDung;
@@ -61,18 +61,20 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Lấy input từ Joystick nếu có, nếu không dùng bàn phím
-        if (joystick != null)
-        {
-            movement = joystick.Direction; // Vector2 (-1..1)
-        }
+        // --- Nhận input từ joystick hoặc bàn phím ---
+        Vector2 joystickInput = joystick != null ? joystick.Direction : Vector2.zero;
+        Vector2 keyboardInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        // Ưu tiên joystick nếu có input, nếu không dùng bàn phím
+        if (joystickInput.magnitude > 0.1f)
+            movement = joystickInput;
         else
-        {
-            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        }
+            movement = keyboardInput;
 
         // Animation
         anim.SetBool("isRunning", movement != Vector2.zero);
+
+        // Flip khi di chuyển trái/phải
         if (movement.x < -0.1f) sr.flipX = true;
         else if (movement.x > 0.1f) sr.flipX = false;
     }

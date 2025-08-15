@@ -27,19 +27,19 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerDownHandl
         inputVector = pos / handleLimit;
 
         // Debug trạng thái
-        Debug.Log($"Joystick Direction: {inputVector}, Magnitude: {inputVector.magnitude}");
+        //Debug.Log($"Joystick Direction: {inputVector}, Magnitude: {inputVector.magnitude}");
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
-        Debug.Log("Joystick Pointer Down");
+     //   Debug.Log("Joystick Pointer Down");
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         handle.localPosition = Vector2.zero;
         inputVector = Vector2.zero;
-        Debug.Log("Joystick Released");
+     //  Debug.Log("Joystick Released");
     }
 }

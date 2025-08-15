@@ -345,6 +345,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2209,7 +2222,91 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AnimateAI_0: -755921747159779169
+      AnimateAI_1: -4740066331907693878
+      AnimateAI_10: -149851275473635281
+      AnimateAI_11: 4206896527769193814
+      AnimateAI_12: 3857847452021893405
+      AnimateAI_13: -6388304606821397364
+      AnimateAI_14: 8350272900946320881
+      AnimateAI_15: 6873881366605569767
+      AnimateAI_16: 7932497768947397444
+      AnimateAI_17: -1916511532358484400
+      AnimateAI_18: -798083913909981621
+      AnimateAI_19: -1329824660426428420
+      AnimateAI_2: 864551282896904474
+      AnimateAI_20: 8494037781219565694
+      AnimateAI_21: -5017291400502138024
+      AnimateAI_22: -4279369862415420789
+      AnimateAI_23: -8562415616324919403
+      AnimateAI_24: -6958911146130958213
+      AnimateAI_25: 1110159123575055162
+      AnimateAI_26: -280314244766090217
+      AnimateAI_27: 2606871844425534460
+      AnimateAI_28: -6277951296101071818
+      AnimateAI_29: 801688155391837512
+      AnimateAI_3: 291238009870124022
+      AnimateAI_30: -6399266150599389682
+      AnimateAI_31: -8297446936821476978
+      AnimateAI_32: 1102299793340675200
+      AnimateAI_33: -8962781582208785988
+      AnimateAI_34: 4640299575138010415
+      AnimateAI_35: -5675325227961849873
+      AnimateAI_36: -1940215232677900176
+      AnimateAI_37: 6038894538038110199
+      AnimateAI_38: 7371472500213183194
+      AnimateAI_39: -7354876036390213540
+      AnimateAI_4: -6500952510805422487
+      AnimateAI_40: -487442679101880430
+      AnimateAI_41: -9077586061143053830
+      AnimateAI_42: -6821437361642534697
+      AnimateAI_43: 6032484857636053602
+      AnimateAI_44: -3985717209570110937
+      AnimateAI_45: 997074925776201810
+      AnimateAI_46: 8851679590297488303
+      AnimateAI_47: -2315008521068235570
+      AnimateAI_48: 1520007377990128524
+      AnimateAI_49: -1114694817739854264
+      AnimateAI_5: 2744085858640043377
+      AnimateAI_50: -2909053136041454632
+      AnimateAI_51: 8165847910624136712
+      AnimateAI_52: -6256358311612064940
+      AnimateAI_53: 1581602166296644099
+      AnimateAI_54: 160607077593222463
+      AnimateAI_55: 2775284038134023216
+      AnimateAI_56: -5111205680013550871
+      AnimateAI_57: 4657831630703663686
+      AnimateAI_58: 7889159070499629389
+      AnimateAI_59: -2981927386785542983
+      AnimateAI_6: 6034270542261384147
+      AnimateAI_60: 6883227371415456108
+      AnimateAI_61: 7310924140262765333
+      AnimateAI_62: -3709888144033551246
+      AnimateAI_63: -6511214795363571367
+      AnimateAI_64: 2300431516221642935
+      AnimateAI_65: 881942680593571508
+      AnimateAI_66: -1626328356994177195
+      AnimateAI_67: -5156831475999356648
+      AnimateAI_68: -5184245022403678803
+      AnimateAI_69: -2471970915602817649
+      AnimateAI_7: -7459305517648121412
+      AnimateAI_70: -7421476177603257131
+      AnimateAI_71: 2542364538309623924
+      AnimateAI_72: -5584332829408528061
+      AnimateAI_73: 5249405307350489323
+      AnimateAI_74: -6441386721401157321
+      AnimateAI_75: -6162134631118130530
+      AnimateAI_76: 5664431029130164555
+      AnimateAI_77: 1791726932250977618
+      AnimateAI_78: -5791837613008982926
+      AnimateAI_79: 8960609810485115036
+      AnimateAI_8: -8768443777106691374
+      AnimateAI_80: -3791886680702899244
+      AnimateAI_81: -915561282066127337
+      AnimateAI_82: -166896572645954199
+      AnimateAI_83: 1648122590055176724
+      AnimateAI_9: -7808606440143789206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
