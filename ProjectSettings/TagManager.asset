@@ -86,5 +86,8 @@ TagManager:
   - name: "Kh\xF4ng"
     uniqueID: 4168723951
     locked: 0
+  - name: Ping
+    uniqueID: 1442669433
+    locked: 0
   m_RenderingLayers:
   - Default

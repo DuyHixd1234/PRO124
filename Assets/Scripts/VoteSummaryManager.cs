@@ -97,20 +97,20 @@ public class VoteSummaryManager : MonoBehaviour
                         // Human bị loại
                         if (humanPlayer != null)
                         {
-                            humanPlayer.SetActive(false);
-                            Debug.Log("🚫 Người chơi đã bị ẩn.");
+                            StartCoroutine(DestroyAfterDelay(humanPlayer, 5f));
+                            Debug.Log("🕒 Người chơi sẽ bị hủy sau 5s.");
                         }
                     }
                     else
                     {
                         // AI bị loại
-                        int aiArrayIndex = votedOutIndex; // index thật sự đã được định vị từ Shuffle
+                        int aiArrayIndex = votedOutIndex;
                         if (aiArrayIndex >= 0 && aiArrayIndex < aiCharacters.Length)
                         {
                             if (aiCharacters[aiArrayIndex] != null)
                             {
-                                aiCharacters[aiArrayIndex].SetActive(false);
-                                Debug.Log($"🧍‍♂️ AI {aiArrayIndex} đã bị ẩn.");
+                                StartCoroutine(DestroyAfterDelay(aiCharacters[aiArrayIndex], 5f));
+                                Debug.Log($"🕒 AI {aiArrayIndex} sẽ bị hủy sau 5s.");
                             }
                         }
                     }
@@ -127,5 +127,15 @@ public class VoteSummaryManager : MonoBehaviour
             kickOutCanvas.SetActive(true);
 
         Debug.Log("✅ Chuyển sang Canvas kick-out.");
+    }
+
+    IEnumerator DestroyAfterDelay(GameObject target, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (target != null)
+        {
+            Destroy(target);
+            Debug.Log($"💥 Object {target.name} đã bị Destroy.");
+        }
     }
 }

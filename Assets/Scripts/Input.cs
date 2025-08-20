@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class MenuFlowManager : MonoBehaviour
 {
     [Header("UI")]
-    public Button playButton;
     public GameObject startPanel;
     public TMP_InputField nameInput;
     public MenuManager menuManager;
 
-    private bool inputStarted = false;
+    private const string playerNameKey = "PlayerName";
+    private const string defaultName = "Player";
 
     void Start()
     {
-        startPanel.SetActive(false);
-        playButton.onClick.AddListener(OnPlayClicked);
+        // Bật panel nhập tên luôn
+        startPanel.SetActive(true);
 
-        // Gắn sự kiện Submit (Enter)
+        // Load tên đã lưu hoặc đặt mặc định
+        string savedName = PlayerPrefs.GetString(playerNameKey, defaultName);
+        nameInput.text = savedName;
+
+        // Đăng ký sự kiện Submit (Enter)
         nameInput.onSubmit.AddListener(OnNameSubmit);
     }
 
     void Update()
     {
-        if (!inputStarted) return;
-
         // Giới hạn tên 20 ký tự (không tính dấu cách)
         string raw = nameInput.text;
         string noSpace = raw.Replace(" ", "");
@@ -43,26 +44,27 @@ public class MenuFlowManager : MonoBehaviour
         }
     }
 
-    void OnPlayClicked()
-    {
-        Debug.Log("Đã click nút Play, bật panel nhập tên.");
-        startPanel.SetActive(true);
-        inputStarted = true;
-        nameInput.ActivateInputField(); // Focus input
-    }
-
     void OnNameSubmit(string inputText)
     {
-        Debug.Log("Đã nhấn Enter (Submit) trong InputField");
+        string finalName = inputText.Trim();
 
-        if (menuManager != null && inputText.Trim().Length > 0)
+        // Nếu người chơi không nhập, dùng tên cũ hoặc mặc định
+        if (string.IsNullOrEmpty(finalName))
         {
-            Debug.Log("Tên hợp lệ, bắt đầu game qua Enter (Submit)");
-            menuManager.OnStartGame();
+            finalName = PlayerPrefs.GetString(playerNameKey, defaultName);
+            nameInput.text = finalName;
         }
-        else
+
+        // Lưu vào PlayerPrefs
+        PlayerPrefs.SetString(playerNameKey, finalName);
+        PlayerPrefs.Save();
+
+        Debug.Log($"Tên đã lưu: {finalName}");
+
+        // Bắt đầu game
+        if (menuManager != null)
         {
-            Debug.Log("Tên rỗng, không bắt đầu");
+            menuManager.OnStartGame();
         }
     }
 }

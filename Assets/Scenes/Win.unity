@@ -2339,7 +2339,7 @@ MonoBehaviour:
   delayBeforeEffect: 0
   useFadeIn: 1
   useFadeOut: 0
-  fadeDuration: 3
+  fadeDuration: 5
   slideInFromLeft: 0
   slideInFromRight: 0
   slideInFromTop: 0

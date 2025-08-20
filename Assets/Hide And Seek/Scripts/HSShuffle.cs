@@ -79,7 +79,7 @@ public class HSShuffle : MonoBehaviour
 
         // Xác suất: Player 25%, AI 75% chia đều
         float roll = Random.value; // random 0.0 → 1.0
-        if (roll < 0.25f)
+        if (roll < 0.65f)
         {
             impostorIndex = 0; // Player làm impostor
         }

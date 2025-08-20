@@ -2,16 +2,29 @@
 
 public class ClearPlayerPrefsOnStart : MonoBehaviour
 {
+    private const string nameKey = "PlayerName";
+
     void Start()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-        Debug.Log("[PlayerPrefs] Dữ liệu PlayerPrefs đã được xóa hoàn toàn khi bắt đầu game.");
+        ClearExceptName();
     }
+
     void Update()
     {
+        ClearExceptName();
+    }
+
+    void ClearExceptName()
+    {
+        // Lưu tên tạm
+        string savedName = PlayerPrefs.GetString(nameKey, "Player");
+
+        // Xoá tất cả
         PlayerPrefs.DeleteAll();
+
+        // Ghi lại tên
+        PlayerPrefs.SetString(nameKey, savedName);
+
         PlayerPrefs.Save();
-    
     }
 }

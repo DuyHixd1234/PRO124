@@ -11,15 +11,23 @@ public class MenuManager : MonoBehaviour
     public GameObject fadePanelGO;
     public Image fadePanelImage;
 
+    private const string playerNameKey = "PlayerName";
+    private const string defaultName = "Player";
+
     private void Start()
     {
-        startButton.interactable = false;
+        // Luôn bật Start
+        startButton.interactable = true;
         fadePanelGO.SetActive(false);
 
-        // Xoá dữ liệu cũ
+        // Xoá dữ liệu cũ (gameplay)
         PlayerPrefs.DeleteKey("VotedOutIndex");
         for (int i = 0; i < 9; i++)
             PlayerPrefs.DeleteKey($"AI_{i}_IsDead");
+
+        // Load tên cũ nếu có
+        string savedName = PlayerPrefs.GetString(playerNameKey, defaultName);
+        nameInput.placeholder.GetComponent<TMP_Text>().text = savedName;
 
         // Tự động focus input field
         nameInput.ActivateInputField();
@@ -44,16 +52,10 @@ public class MenuManager : MonoBehaviour
             nameInput.caretPosition = result.Length;
         }
 
-        // Bật / tắt nút start tùy theo nội dung input
-        startButton.interactable = nameInput.text.Trim().Length > 0;
-
         // Nếu đang focus và bấm Enter thì cũng start game
         if (nameInput.isFocused && Input.GetKeyDown(KeyCode.Return))
         {
-            if (startButton.interactable)
-            {
-                OnStartGame();
-            }
+            OnStartGame();
         }
     }
 
@@ -65,12 +67,23 @@ public class MenuManager : MonoBehaviour
             data.AddComponent<PlayerData>();
         }
 
-        PlayerData.Instance.playerName = nameInput.text.Trim();
+        string finalName = nameInput.text.Trim();
+
+        // Nếu input rỗng → lấy PlayerPrefs (nếu có) hoặc "Player"
+        if (string.IsNullOrEmpty(finalName))
+            finalName = PlayerPrefs.GetString(playerNameKey, defaultName);
+
+        PlayerData.Instance.playerName = finalName;
+
+        // Lưu vào PlayerPrefs
+        PlayerPrefs.SetString(playerNameKey, finalName);
+        PlayerPrefs.Save();
+
+        Debug.Log("[MenuManager] Player Name sử dụng: " + finalName);
 
         startButton.interactable = false;
         StartCoroutine(FadeAndLoadScene("Lobby"));
     }
-
 
     IEnumerator FadeAndLoadScene(string sceneName)
     {
